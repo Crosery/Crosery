@@ -1,6 +1,6 @@
 # Hi 👋, I'm Crosery
 
-### A passionate student at YangtzeU focusing on AI, Web Spiders, and ROS2. I love learning new technologies and I'm a huge fan of Yuzusoft. Ciallo～(∠・ω< )⌒★
+### A passionate student at YangtzeU focusing on AI, Web Spiders, and ROS. I love learning new technologies and I'm a huge fan of Yuzusoft. Ciallo～(∠・ω< )⌒★
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=Crosery" alt="Crosery" /></a> </p>
 
@@ -17,7 +17,7 @@
 <a href="https://github.com/Crosery" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="Crosery" height="30" width="40" /></a>
 <a href="https://kaggle.com/crosery" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="crosery" height="30" width="40" /></a>
 <a href="https://twitter.com/XiLuo4125248565" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="XiLuo4125248565" height="30" width="40" /></a>
-<a href="https://youtube.com/XiLuo-l4j" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="XiLuo-l4j" height="30" width="40" /></a>
+<a href="https://youtube.com/@XiLuo-l4j" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="@XiLuo-l4j" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
