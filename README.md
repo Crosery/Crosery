@@ -1,6 +1,6 @@
 # Hi 👋, I'm Crosery
 
-### A passionate student at YangtzeU focusing on AI, Web Spiders, and ROS. I love learning new technologies and I'm a huge fan of Yuzusoft. Ciallo～(∠・ω< )⌒★
+### A passionate student at YangtzeU focusing on AI, Web Spiders, and ROS2. I love learning new technologies and I'm a huge fan of Yuzusoft. Ciallo～(∠・ω< )⌒★
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=Crosery" alt="Crosery" /></a> </p>
 
