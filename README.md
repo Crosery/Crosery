@@ -2,8 +2,6 @@
 
 ### A passionate student at YangtzeU focusing on AI, Web Spiders, and ROS. I love learning new technologies and I'm a huge fan of Yuzusoft. Ciallo～(∠・ω< )⌒★
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=Crosery&label=Profile views&color=0e75b6&style=flat" alt="Crosery" /> </p>
-
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=Crosery" alt="Crosery" /></a> </p>
 
 - 🔭 I'm currently working on **ROS2、Python、AI、CV**
