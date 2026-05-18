@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-label="Top Languages">
+  <defs><style>
+    .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+    .name  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+    .pct   { font-family: 'Helvetica Neue', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+    .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.06em; }
+  </style></defs>
+  <rect width="600" height="380" fill="#0d1117"/>
+  <line x1="30" y1="30" x2="570" y2="30" stroke="#30363d" stroke-width="0.6"/>
+  <text x="30" y="22" class="meta" font-size="10" fill="#7d8590">// LANGUAGES · by repo file size</text>
+  <text x="570" y="22" text-anchor="end" class="meta" font-size="10" fill="#7d8590">SOURCE: github graphql</text>
+  <text x="30" y="74" class="title" font-size="38" fill="#f0f6fc">STACK · BYTES<tspan fill="#ff7b72">.</tspan></text>
+  <text x="30" y="94" class="meta" font-size="10" fill="#7d8590">includes html/css/assets — daily-driver lang is rust + py</text>
+  <g transform="translate(30,130)">
+    <text class="name" font-size="14" fill="#f0f6fc">HTML</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">31.7%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#e34c26" stroke-width="3">
+      <animate attributeName="x2" from="0" to="126" dur="1.6s" begin="0.00s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,168)">
+    <text class="name" font-size="14" fill="#f0f6fc">C</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">28.7%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#555555" stroke-width="3">
+      <animate attributeName="x2" from="0" to="114" dur="1.6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,206)">
+    <text class="name" font-size="14" fill="#f0f6fc">Makefile</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">8.7%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#427819" stroke-width="3">
+      <animate attributeName="x2" from="0" to="34" dur="1.6s" begin="0.30s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,244)">
+    <text class="name" font-size="14" fill="#f0f6fc">C++</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">6.8%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#f34b7d" stroke-width="3">
+      <animate attributeName="x2" from="0" to="27" dur="1.6s" begin="0.45s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,282)">
+    <text class="name" font-size="14" fill="#f0f6fc">TypeScript</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">4.5%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#3178c6" stroke-width="3">
+      <animate attributeName="x2" from="0" to="17" dur="1.6s" begin="0.60s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,320)">
+    <text class="name" font-size="14" fill="#f0f6fc">Python</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">4.0%</text>
+    <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
+    <line x1="0" y1="12" x2="0" y2="12" stroke="#3572A5" stroke-width="3">
+      <animate attributeName="x2" from="0" to="16" dur="1.6s" begin="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </line>
+  </g>
+  <g transform="translate(30,360)">
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#30363d" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="3" fill="#ff7b72">
+      <animateMotion dur="5s" repeatCount="indefinite" path="M0,0 L540,0 L540,0 L0,0"/>
+    </circle>
+  </g>
+</svg>

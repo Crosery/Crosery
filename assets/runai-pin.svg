@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-label="Pinned: runai">
+  <defs><style>
+    .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+    .h     { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.20em; }
+    .body  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; }
+    .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.06em; }
+    .num   { font-family: 'Helvetica Neue', 'Arial Black', sans-serif; font-weight: 900; }
+  </style></defs>
+  <rect width="600" height="380" fill="#0d1117"/>
+  <line x1="30" y1="30" x2="570" y2="30" stroke="#30363d" stroke-width="0.6"/>
+  <text x="30" y="22" class="meta" font-size="10" fill="#7d8590">// PINNED · featured repo</text>
+  <text x="570" y="22" text-anchor="end" class="meta" font-size="10" fill="#7d8590">github.com/Crosery/runai</text>
+  <text x="30" y="86" class="title" font-size="48" fill="#f0f6fc">RUNAI<tspan fill="#ff7b72">.</tspan></text>
+  <text x="30" y="120" class="body" font-size="13" fill="#c9d1d9">AI CLI skill/MCP resource manager with TUI and MCP server — </text>
+  <text x="30" y="140" class="body" font-size="13" fill="#c9d1d9">manage skills, MCPs, groups across Claude/Codex/Gemini/Op...</text>
+  <g transform="translate(30,200)">
+    <g>
+      <text class="meta" font-size="9" fill="#7d8590">STARS</text>
+      <text class="num" font-size="44" fill="#f0f6fc" y="44">9</text>
+      <line x1="0" y1="54" x2="60" y2="54" stroke="#ffd33d" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(160,0)">
+      <text class="meta" font-size="9" fill="#7d8590">FORKS</text>
+      <text class="num" font-size="44" fill="#f0f6fc" y="44">2</text>
+      <line x1="0" y1="54" x2="60" y2="54" stroke="#58a6ff" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(320,0)">
+      <text class="meta" font-size="9" fill="#7d8590">LANG</text>
+      <text class="num" font-size="44" fill="#f0f6fc" y="44">RUST</text>
+      <line x1="0" y1="54" x2="60" y2="54" stroke="#dea584" stroke-width="1.5"/>
+    </g>
+  </g>
+  <text x="30" y="316" class="h" font-size="11" fill="#7d8590">FLAGSHIP &#183; OPEN SOURCE &#183; INSTALL VIA CARGO</text>
+  <text x="30" y="338" class="meta" font-size="11" fill="#7ee787">$ cargo install runai-cli</text>
+  <g transform="translate(30,360)">
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#30363d" stroke-width="0.5"/>
+    <rect x="0" y="-1" width="0" height="2" fill="#ff7b72">
+      <animate attributeName="x" values="0;540" dur="3.6s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="40;0" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

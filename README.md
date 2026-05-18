@@ -89,17 +89,21 @@
 
 <h2>NUMBERS<span style="color:#ff7b72">.</span></h2>
 
+<p align="left">
+  <sub><code>self-hosted · 数据走 github graphql · GitHub Actions 每天 03:17 自动重生成</code></sub>
+</p>
+
 <div align="center">
 
-<img height="180" src="https://github-readme-stats.vercel.app/api?username=Crosery&show_icons=true&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&icon_color=FF7B72&include_all_commits=true&count_private=true&card_width=480&custom_title=GitHub+%C2%B7+Crosery&cache_seconds=14400" alt="github stats" />
-<img height="180" src="https://streak-stats.demolab.com/?user=Crosery&hide_border=true&background=0D1117&stroke=30363D&ring=FF7B72&fire=FF7B72&currStreakLabel=58A6FF&sideLabels=C9D1D9&dates=7D8590&currStreakNum=F0F6FC&sideNums=F0F6FC&date_format=%5BY.%5Dn.j" alt="streak" />
+<img height="220" src="./assets/stats.svg" alt="stats" />
+<img height="220" src="https://streak-stats.demolab.com/?user=Crosery&hide_border=true&background=0D1117&stroke=30363D&ring=FF7B72&fire=FF7B72&currStreakLabel=58A6FF&sideLabels=C9D1D9&dates=7D8590&currStreakNum=F0F6FC&sideNums=F0F6FC&date_format=%5BY.%5Dn.j" alt="streak" />
 
 </div>
 
 <div align="center">
 
-<img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Crosery&layout=donut&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=6&card_width=480&custom_title=Languages+%C2%B7+by+repo+volume&cache_seconds=14400" alt="top langs" />
-<img height="180" src="https://github-readme-stats.vercel.app/api/pin/?username=Crosery&repo=runai&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&icon_color=FF7B72&description_lines_count=2" alt="runai pin" />
+<img height="220" src="./assets/top-langs.svg" alt="top langs" />
+<img height="220" src="./assets/runai-pin.svg" alt="runai pin" />
 
 </div>
 
