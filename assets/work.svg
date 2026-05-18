@@ -1,78 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-label="Work">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1080" role="img" aria-label="Section 02 / Work">
   <defs>
     <style>
       .num   { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
       .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
       .h     { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.24em; }
       .body  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; }
-      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.08em; }
+      .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.06em; }
+      .star  { font-family: 'Courier New', monospace; font-weight: 700; }
     </style>
   </defs>
 
-  <rect width="1280" height="760" fill="#fafafa"/>
+  <rect width="1280" height="1080" fill="#0d1117"/>
 
-  <line x1="80" y1="30" x2="1200" y2="30" stroke="#0a0a0a" stroke-width="0.8"/>
-  <text x="80" y="22" class="meta" font-size="10" fill="#0a0a0a">SECTION 02 / WORK</text>
-  <text x="1200" y="22" text-anchor="end" class="meta" font-size="10" fill="#9a9a9a">SEVEN SHIPS YOU SHOULDN&#8217;T MISS</text>
+  <line x1="80" y1="30" x2="1200" y2="30" stroke="#30363d" stroke-width="0.6"/>
+  <text x="80" y="22" class="meta" font-size="10" fill="#7d8590">SECTION 02 / WORK</text>
+  <text x="1200" y="22" text-anchor="end" class="meta" font-size="10" fill="#7d8590">SHIPPED &amp; LIVE — TOP 8 BY RECENCY</text>
 
-  <text x="80" y="100" class="title" font-size="60" fill="#0a0a0a">SHIPPED<tspan fill="#ff2e2e">.</tspan></text>
-  <text x="80" y="125" class="h" font-size="11" fill="#6a6a6a">38 PUBLIC REPOS · ACTIVE 2026</text>
+  <text x="80" y="100" class="title" font-size="56" fill="#f0f6fc">SHIPPED<tspan fill="#ff7b72">.</tspan></text>
+  <text x="80" y="124" class="meta" font-size="11" fill="#7d8590">38 PUBLIC REPOS &#183; ACTIVE 2026 &#183; ALL LINKS GO TO GITHUB.COM/CROSERY</text>
 
-  <!-- ENTRY 01 -->
-  <g transform="translate(80,200)">
-    <text class="num" font-size="68" fill="#ff2e2e" y="0">01</text>
-    <g transform="translate(150,-40)">
-      <text class="h" font-size="11" fill="#9a9a9a" y="0">RUST &#183; CLI &#183; MCP</text>
-      <text class="title" font-size="32" fill="#0a0a0a" y="32">RUNAI</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI skill / MCP 资源管理器，TUI + MCP server，</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="70">跨 Claude / Codex / Gemini / OpenCode 统一管理 skills、MCPs、groups。</text>
-    </g>
-    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
-  </g>
-
-  <!-- ENTRY 02 -->
-  <g transform="translate(80,340)">
-    <text class="num" font-size="68" fill="#0a0a0a" y="0">02</text>
-    <g transform="translate(150,-40)">
-      <text class="h" font-size="11" fill="#9a9a9a" y="0">RUST &#183; MULTI-AGENT &#183; ORCHESTRATION</text>
-      <text class="title" font-size="32" fill="#0a0a0a" y="32">ACP-BUS</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="50">多 AI Agent 协作总线，让 AI 组团干活，</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="70">topic 订阅 + 消息路由，把 Claude / Codex / Gemini 串成 pipeline。</text>
-    </g>
-    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
-  </g>
-
-  <!-- ENTRY 03 -->
-  <g transform="translate(80,480)">
-    <text class="num" font-size="68" fill="#0a0a0a" y="0">03</text>
-    <g transform="translate(150,-40)">
-      <text class="h" font-size="11" fill="#9a9a9a" y="0">JS &#183; ZERO-DEPS &#183; CLI</text>
-      <text class="title" font-size="32" fill="#0a0a0a" y="32">AREAD</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI-friendly web reader + DuckDuckGo search CLI，</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="70">把任意 URL 抓成 Markdown，零依赖、无 API key。</text>
-    </g>
-    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
-  </g>
-
-  <!-- ENTRY 04 -->
-  <g transform="translate(80,620)">
-    <text class="num" font-size="68" fill="#0a0a0a" y="0">04</text>
-    <g transform="translate(150,-40)">
-      <text class="h" font-size="11" fill="#9a9a9a" y="0">PYTHON &#183; AI &#183; CREATIVE SYSTEM</text>
-      <text class="title" font-size="32" fill="#0a0a0a" y="32">PPT-ANYTHING</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI story-deck generator，给 topic 出连贯插画 PPT，</text>
-      <text class="body" font-size="14" fill="#3a3a3a" y="70">recurring characters + visual taste，不是 markdown 转 slide 玩具。</text>
-    </g>
-  </g>
-
-  <g transform="translate(80,730)">
-    <text class="meta" font-size="11" fill="#6a6a6a">&#8594; 翻下去还有 NIRI-SWITCHER &#183; ARK_RL &#183; SIGNAL-KEEPER &#183; KAIWU &#183; ...</text>
-  </g>
-
-  <!-- left red bar animate -->
+  <!-- left red bar -->
   <g transform="translate(0,160)">
-    <rect width="56" height="0" fill="#ff2e2e">
-      <animate attributeName="height" from="0" to="540" dur="2.4s" begin="0.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    <rect width="56" height="0" fill="#ff7b72" opacity="0.85">
+      <animate attributeName="height" from="0" to="860" dur="2.8s" begin="0.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
     </rect>
+  </g>
+
+  <!-- ENTRY 01 RUNAI -->
+  <g transform="translate(80,200)">
+    <text class="num" font-size="64" fill="#ff7b72" y="0">01</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">RUST &#183; CLI &#183; MCP &#183; TUI</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">RUNAI</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; 9   &#9696; 2   &#8226; rust 100%</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">ai skill / mcp 资源管理器，自带 TUI 和 mcp server</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">跨 claude / codex / gemini / opencode 统一管理 skills、MCPs、groups</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 02 ACP-BUS -->
+  <g transform="translate(80,310)">
+    <text class="num" font-size="64" fill="#58a6ff" y="0">02</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">RUST &#183; MULTI-AGENT &#183; ORCHESTRATION</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">ACP-BUS</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; 9   &#9696; 1   &#8226; rust 100%</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">多 ai agent 协作总线，让 ai 组团干活</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">topic 订阅 + 消息路由，把 claude / codex / gemini 串成 pipeline</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 03 AREAD -->
+  <g transform="translate(80,420)">
+    <text class="num" font-size="64" fill="#7ee787" y="0">03</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">JAVASCRIPT &#183; ZERO-DEPS &#183; CLI</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">AREAD</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; 4   &#9696; 0   &#8226; js 100%</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">ai-friendly web reader + duckduckgo search CLI</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">把任意 URL 抓成 markdown，零依赖、不要 api key</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 04 NIRI-WINDOW-SWITCHER -->
+  <g transform="translate(80,530)">
+    <text class="num" font-size="64" fill="#ffd33d" y="0">04</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">RUST &#183; WAYLAND &#183; LINUX DESKTOP</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">NIRI-WINDOW-SWITCHER</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; 3   &#9696; 0   &#8226; rust 100%</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">现代 niri 合成器窗口切换器</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">fuzzy 搜索 + 键盘导航 + glassmorphism UI</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 05 PPT-ANYTHING -->
+  <g transform="translate(80,640)">
+    <text class="num" font-size="64" fill="#d2a8ff" y="0">05</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">PYTHON &#183; AI &#183; CREATIVE SYSTEM</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">PPT-ANYTHING</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; 2   &#9696; 0   &#8226; python</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">ai story-deck generator</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">给 topic 出连贯插画 ppt，recurring characters + visual taste</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 06 ARK_RL -->
+  <g transform="translate(80,750)">
+    <text class="num" font-size="64" fill="#ff7b72" y="0">06</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">RL &#183; PYTORCH &#183; PPO</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">ARK_RL</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; public   &#8226; environment + training + inference</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">明日方舟强化学习环境 + 训练 / 推理</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">业余推进，从 selfplay → 战令奖励塑形迭代</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 07 SIGNAL-KEEPER -->
+  <g transform="translate(80,860)">
+    <text class="num" font-size="64" fill="#58a6ff" y="0">07</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">PYTHON &#183; ORCHESTRATION &#183; LONG-TASK</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">SIGNAL-KEEPER</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">&#9733; public   &#8226; python</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">长任务观察 + 调度编排工具包，给 openclaw 用</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">跑训练、跑评测、跑批 ai 调用都能套，watchdog + dispatcher 二合一</text>
+    </g>
+    <line x1="0" y1="60" x2="1120" y2="60" stroke="#30363d" stroke-width="0.5"/>
+  </g>
+
+  <!-- ENTRY 08 PPT 系列 -->
+  <g transform="translate(80,970)">
+    <text class="num" font-size="64" fill="#7ee787" y="0">08</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="10" fill="#7d8590" y="0">HTML &#183; CSS &#183; MAGAZINE / WATERCOLOR / CHIBI</text>
+      <text class="title" font-size="30" fill="#f0f6fc" y="30">PPT &amp; LANDING 系列</text>
+      <text class="meta" font-size="10" fill="#7ee787" y="48">router-dispatch-ppt &#183; claudecode-partner-ppt &#183; deepseek-v4 &#183; jkb-fxh &#183; ...</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">技术分享 ppt 和品牌 landing 一律手写 html / svg，杂志风 / 水彩风 / chibi 风</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="93">deepseek-v4、router-dispatch 这两个最能体现视觉风格</text>
+    </g>
+  </g>
+
+  <!-- footer -->
+  <g transform="translate(80,1050)">
+    <text class="meta" font-size="11" fill="#7d8590">&#8594; 还有 figma-mcp-guide / blue-archive-agent-system / aread / Croco / homebrew-tokenicode / dotfiles ...</text>
   </g>
 </svg>

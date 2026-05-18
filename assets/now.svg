@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 340" role="img" aria-label="Section 01 / Now">
+  <defs>
+    <style>
+      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+      .name  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+      .h     { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.28em; }
+      .body  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; }
+      .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="340" fill="#0d1117"/>
+
+  <line x1="80" y1="30" x2="1200" y2="30" stroke="#30363d" stroke-width="0.6"/>
+  <text x="80" y="22" class="meta" font-size="10" fill="#7d8590">SECTION 01 / NOW</text>
+  <text x="1200" y="22" text-anchor="end" class="meta" font-size="10" fill="#7d8590">REFRESHED MAY 2026 · 03:14 +08</text>
+
+  <text x="80" y="100" class="title" font-size="48" fill="#f0f6fc">
+    现 在 在 做<tspan fill="#ff7b72">.</tspan>
+  </text>
+  <text x="80" y="125" class="meta" font-size="11" fill="#7d8590">three things keeping the lights on</text>
+
+  <g transform="translate(80,160)">
+    <!-- column A -->
+    <g>
+      <text class="h" font-size="11" fill="#ff7b72" y="0">A &#8201;/&#8201; CLI TOOLCHAIN</text>
+      <text class="name" font-size="28" fill="#f0f6fc" y="32">RUNAI</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="56">rust 写的 ai cli 资源管理器</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">跨 claude / codex / gemini / opencode</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="92">统一管理 skills + MCP servers + groups</text>
+      <text class="meta" font-size="10" fill="#7d8590" y="116">$ cargo install runai-cli</text>
+      <g transform="translate(0,128)">
+        <rect width="320" height="2" fill="#21262d"/>
+        <rect width="0" height="2" fill="#ff7b72">
+          <animate attributeName="width" values="0;280;200;320;180" dur="6s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <text class="meta" font-size="9" fill="#7d8590" y="148">STATUS &#8201;&#x25CF;&#8201; ACTIVE</text>
+    </g>
+
+    <!-- column B -->
+    <g transform="translate(400,0)">
+      <text class="h" font-size="11" fill="#58a6ff" y="0">B &#8201;/&#8201; MULTI-AGENT BUS</text>
+      <text class="name" font-size="28" fill="#f0f6fc" y="32">ACP-BUS</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="56">多 ai agent 协作总线</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">topic 订阅 + 消息路由</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="92">把多个 ai 客户端串成 pipeline</text>
+      <text class="meta" font-size="10" fill="#7d8590" y="116">cargo install acp-bus</text>
+      <g transform="translate(0,128)">
+        <rect width="320" height="2" fill="#21262d"/>
+        <rect width="0" height="2" fill="#58a6ff">
+          <animate attributeName="width" values="0;200;280;160;240" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <text class="meta" font-size="9" fill="#7d8590" y="148">STATUS &#8201;&#x25CF;&#8201; ACTIVE</text>
+    </g>
+
+    <!-- column C -->
+    <g transform="translate(800,0)">
+      <text class="h" font-size="11" fill="#7ee787" y="0">C &#8201;/&#8201; CREATIVE SYSTEM</text>
+      <text class="name" font-size="28" fill="#f0f6fc" y="32">PPT-ANYTHING</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="56">ai story-deck 生成器</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="74">给 topic 出连贯插画 ppt</text>
+      <text class="body" font-size="13" fill="#c9d1d9" y="92">recurring characters + visual taste</text>
+      <text class="meta" font-size="10" fill="#7d8590" y="116">water-color / chibi / 印刷风</text>
+      <g transform="translate(0,128)">
+        <rect width="320" height="2" fill="#21262d"/>
+        <rect width="0" height="2" fill="#7ee787">
+          <animate attributeName="width" values="0;160;240;180;300" dur="6s" begin="1s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <text class="meta" font-size="9" fill="#7d8590" y="148">STATUS &#8201;&#x25CF;&#8201; SHIPPING</text>
+    </g>
+  </g>
+
+  <!-- bottom sweep -->
+  <g transform="translate(80,322)">
+    <line x1="0" y1="0" x2="1120" y2="0" stroke="#30363d" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="3" fill="#f0f6fc">
+      <animateMotion dur="3.4s" begin="0.4s" fill="freeze" path="M0,0 L1120,0"/>
+      <animate attributeName="r" values="3;6;3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

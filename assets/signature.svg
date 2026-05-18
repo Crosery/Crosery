@@ -1,37 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 160" role="img" aria-label="signature">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 220" role="img" aria-label="ciallo">
   <defs>
     <style>
       .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
-      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.18em; }
+      .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.16em; }
+      .kao   { font-family: 'Hiragino Sans', 'Helvetica Neue', sans-serif; font-weight: 700; }
     </style>
   </defs>
 
-  <rect width="1280" height="160" fill="#0a0a0a"/>
+  <rect width="1280" height="220" fill="#0d1117"/>
 
-  <g class="meta" fill="#6a6a6a" font-size="10">
+  <g class="meta" fill="#7d8590" font-size="10">
     <text x="80" y="32">— THE CROSERY DISPATCH</text>
     <text x="1200" y="32" text-anchor="end">END  /  THANK YOU FOR READING  /  MMXXVI</text>
   </g>
 
-  <line x1="80" y1="42" x2="1200" y2="42" stroke="#3a3a3a" stroke-width="0.5"/>
+  <line x1="80" y1="44" x2="1200" y2="44" stroke="#30363d" stroke-width="0.5"/>
 
-  <g transform="translate(80,110)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" begin="0.3s" dur="0.8s" fill="freeze"/>
-    <text class="title" font-size="56" fill="#f4f4f4">
-      ciallo<tspan fill="#ff2e2e">.</tspan>
-    </text>
-  </g>
+  <!-- ciallo big text + kaomoji -->
+  <text x="80" y="130" class="title" font-size="64" fill="#f0f6fc">ciallo<tspan fill="#ff7b72">.</tspan></text>
+  <text x="380" y="130" class="kao" font-size="40" fill="#58a6ff">～(∠・ω&lt; )⌒<tspan fill="#ffd33d">★<animate attributeName="fill" values="#ffd33d;#ff7b72;#7ee787;#ffd33d" dur="3s" repeatCount="indefinite"/></tspan></text>
 
-  <g transform="translate(1200,110)" opacity="0" text-anchor="end">
-    <animate attributeName="opacity" from="0" to="1" begin="0.7s" dur="0.6s" fill="freeze"/>
-    <text class="meta" font-size="11" fill="#9a9a9a">DESIGN  /  CODE  /  WRITING  /  ALL  BY  CROSERY</text>
-    <text class="meta" font-size="11" fill="#6a6a6a" y="20">crosery.cn  ·  github.com/Crosery</text>
-  </g>
-
+  <!-- underline scan that wipes across ciallo region -->
   <g transform="translate(80,148)">
-    <rect width="0" height="1" fill="#ff2e2e">
-      <animate attributeName="width" from="0" to="1120" dur="1.8s" begin="0s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    <line x1="0" y1="0" x2="640" y2="0" stroke="#21262d" stroke-width="1"/>
+    <rect x="0" y="-1" width="0" height="2" fill="#ff7b72">
+      <animate attributeName="width" from="0" to="640" dur="1.4s" begin="0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
     </rect>
+  </g>
+
+  <!-- right meta -->
+  <g transform="translate(1200,98)" text-anchor="end">
+    <text class="meta" font-size="11" fill="#f0f6fc">DESIGN  /  CODE  /  WRITING  /  ALL  BY  CROSERY</text>
+    <text class="meta" font-size="11" fill="#7d8590" y="22">crosery.cn  ·  github.com/Crosery</text>
+    <text class="meta" font-size="11" fill="#7d8590" y="44">YuzuSoft fan  ·  drawing in spare time</text>
+    <text class="meta" font-size="11" fill="#7d8590" y="66">本期完 · see you in issue 19</text>
+  </g>
+
+  <!-- pulsing bottom line -->
+  <g transform="translate(80,200)">
+    <line x1="0" y1="0" x2="1120" y2="0" stroke="#21262d" stroke-width="0.5"/>
+    <rect x="0" y="-0.5" width="0" height="1" fill="#ff7b72">
+      <animate attributeName="width" from="0" to="1120" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- decorative status dots -->
+  <g transform="translate(80,182)">
+    <circle r="3" cx="0"  fill="#ff7b72"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle r="3" cx="14" fill="#58a6ff"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+    <circle r="3" cx="28" fill="#7ee787"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <text x="46" y="3" class="meta" font-size="9" fill="#7d8590">SYS&#8201;CLOSING&#8201;CONNECTION...</text>
   </g>
 </svg>

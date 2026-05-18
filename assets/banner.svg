@@ -1,78 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="Crosery — Building AI Toolchains and RL Agents">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" role="img" aria-label="Crosery — Night Dispatch">
   <defs>
-    <filter id="paper">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/>
-      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
-      <feComposite in2="SourceGraphic" operator="in"/>
-    </filter>
+    <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#58a6ff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0.6" stop-color="#0d1117" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#21262d" stroke-width="0.5"/>
+    </pattern>
     <style>
-      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.045em; }
       .sub   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.32em; }
-      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.08em; }
+      .meta  { font-family: 'Courier New', 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.08em; }
+      .bar   { font-family: 'Courier New', monospace; font-weight: 700; }
     </style>
   </defs>
 
-  <rect width="1280" height="360" fill="#fafafa"/>
-  <rect width="1280" height="360" fill="#fff" filter="url(#paper)"/>
+  <rect width="1280" height="420" fill="#0d1117"/>
+  <rect width="1280" height="420" fill="url(#grid)"/>
+  <rect width="1280" height="420" fill="url(#vignette)"/>
 
-  <g fill="none" stroke="#222" stroke-width="0.5" opacity="0.4">
-    <line x1="80"  y1="40" x2="80"  y2="320"/>
-    <line x1="1200" y1="40" x2="1200" y2="320"/>
-    <line x1="80"  y1="40" x2="1200" y2="40"/>
-    <line x1="80"  y1="320" x2="1200" y2="320"/>
-  </g>
-
-  <g class="meta" fill="#9a9a9a" font-size="11">
-    <text x="80" y="32">— THE CROSERY DISPATCH</text>
-    <text x="1200" y="32" text-anchor="end">VOL. 02  /  ISSUE Nº 18  /  MMXXVI</text>
-  </g>
-
-  <g transform="translate(80,220)">
-    <text class="title" font-size="170" fill="#0a0a0a">
-      <tspan x="0"   opacity="0">C<animate attributeName="opacity" from="0" to="1" begin="0.15s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="115" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.22s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="231" opacity="0">O<animate attributeName="opacity" from="0" to="1" begin="0.29s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="354" opacity="0">S<animate attributeName="opacity" from="0" to="1" begin="0.36s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="461" opacity="0">E<animate attributeName="opacity" from="0" to="1" begin="0.43s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="567" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.50s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="683" opacity="0">Y<animate attributeName="opacity" from="0" to="1" begin="0.57s" dur="0.05s" fill="freeze"/></tspan>
-      <tspan x="789" opacity="0" fill="#ff2e2e">.<animate attributeName="opacity" from="0" to="1" begin="0.78s" dur="0.06s" fill="freeze"/></tspan>
-    </text>
-  </g>
-
-  <g transform="translate(80,250)">
-    <rect x="0" y="0" height="3" width="0" fill="#0a0a0a">
-      <animate attributeName="width" from="0" to="1120" begin="0.95s" dur="1.0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    </rect>
-    <rect x="0" y="0" height="3" width="0" fill="#ff2e2e">
-      <animate attributeName="width" from="0" to="120" begin="1.85s" dur="0.35s" fill="freeze"/>
-    </rect>
-  </g>
-
-  <g class="sub" transform="translate(80,288)" fill="#0a0a0a" font-size="13" opacity="0">
-    <text>BUILDING  AI  TOOLCHAINS  &#183;  RL  AGENTS  &#183;  RUST  SHIPS</text>
-    <animate attributeName="opacity" from="0" to="1" begin="1.6s" dur="0.6s" fill="freeze"/>
-  </g>
-
-  <g class="meta" transform="translate(80,312)" fill="#6a6a6a" font-size="11" opacity="0">
-    <text>crosery.cn  &#8595;  yangtze university  &#8595;  individual developer</text>
-    <animate attributeName="opacity" from="0" to="1" begin="1.95s" dur="0.6s" fill="freeze"/>
-  </g>
-
-  <g transform="translate(1200,312)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" begin="2.0s" dur="0.5s" fill="freeze"/>
-    <text class="meta" text-anchor="end" font-size="11" fill="#0a0a0a">&#8595;  SCROLL  TO  CONTINUE</text>
-  </g>
-
-  <g transform="translate(1130,100)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" begin="2.3s" dur="0.4s" fill="freeze"/>
-    <g>
-      <circle cx="0" cy="0" r="46" fill="none" stroke="#ff2e2e" stroke-width="1" stroke-dasharray="3 5"/>
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="22s" repeatCount="indefinite"/>
+  <!-- top edge bar with status lights -->
+  <g transform="translate(0,16)">
+    <line x1="80" y1="0" x2="1200" y2="0" stroke="#30363d" stroke-width="0.6"/>
+    <g class="meta" font-size="10">
+      <text x="80" y="-4" fill="#7d8590">THE CROSERY DISPATCH &#8201;//&#8201; NIGHT EDITION</text>
+      <text x="1200" y="-4" text-anchor="end" fill="#7d8590">VOL. 02&#8201;&#183;&#8201;ISSUE Nº 19&#8201;&#183;&#8201;MMXXVI&#8201;&#183;&#8201;CN</text>
     </g>
-    <circle cx="0" cy="0" r="38" fill="none" stroke="#0a0a0a" stroke-width="1"/>
-    <text text-anchor="middle" y="-12" class="meta" font-size="8" fill="#ff2e2e">— NOW —</text>
-    <text text-anchor="middle" y="10" class="title" font-size="22" fill="#0a0a0a">PPO</text>
-    <text text-anchor="middle" y="24" class="meta" font-size="7" fill="#6a6a6a">v3.1 / kaiwu</text>
+    <g transform="translate(80,16)">
+      <circle r="4" cx="0"  cy="0" fill="#7ee787"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle r="4" cx="14" cy="0" fill="#ffd33d"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite"/></circle>
+      <circle r="4" cx="28" cy="0" fill="#ff7b72"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <text x="46" y="3" class="meta" font-size="9" fill="#7d8590">SYS&#8201;ONLINE&#8201;&#183;&#8201;UPTIME 02:48:11&#8201;&#183;&#8201;TZ +08</text>
+    </g>
   </g>
+
+  <!-- main title -->
+  <g transform="translate(80,260)">
+    <text class="title" font-size="172" fill="#f0f6fc">
+      <tspan x="0"   opacity="0">C<animate attributeName="opacity" from="0" to="1" begin="0.20s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="116" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.27s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="234" opacity="0">O<animate attributeName="opacity" from="0" to="1" begin="0.34s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="359" opacity="0">S<animate attributeName="opacity" from="0" to="1" begin="0.41s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="466" opacity="0">E<animate attributeName="opacity" from="0" to="1" begin="0.48s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="574" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.55s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="691" opacity="0">Y<animate attributeName="opacity" from="0" to="1" begin="0.62s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="797" opacity="0" fill="#ff7b72">.<animate attributeName="opacity" from="0" to="1" begin="0.85s" dur="0.06s" fill="freeze"/></tspan>
+    </text>
+    <!-- block cursor -->
+    <rect x="820" y="-130" width="22" height="130" fill="#58a6ff" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.45;0.5;0.55;0.65;0.75;0.85;1" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- two accent lines under title -->
+  <g transform="translate(80,290)">
+    <rect x="0" y="0" height="3" width="0" fill="#f0f6fc">
+      <animate attributeName="width" from="0" to="1120" begin="1.0s" dur="1.0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+    </rect>
+    <rect x="0" y="6" height="1" width="0" fill="#ff7b72">
+      <animate attributeName="width" from="0" to="180" begin="1.95s" dur="0.4s" fill="freeze"/>
+    </rect>
+    <rect x="190" y="6" height="1" width="0" fill="#58a6ff">
+      <animate attributeName="width" from="0" to="80" begin="2.15s" dur="0.3s" fill="freeze"/>
+    </rect>
+    <rect x="280" y="6" height="1" width="0" fill="#7ee787">
+      <animate attributeName="width" from="0" to="120" begin="2.3s" dur="0.4s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <!-- subtitle -->
+  <g class="sub" transform="translate(80,328)" fill="#f0f6fc" font-size="13" opacity="0">
+    <text>BUILDING  AI  TOOLCHAINS  &#183;  OPEN  SOURCE  &#183;  RUST  SHIPS</text>
+    <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.6s" fill="freeze"/>
+  </g>
+
+  <!-- bilingual tagline -->
+  <g class="meta" transform="translate(80,354)" fill="#7d8590" font-size="11" opacity="0">
+    <text>个 人 开 发 者  &#8201;//&#8201;  yangtze university  &#8201;//&#8201;  crosery.cn  &#8201;//&#8201;  38+ public repos</text>
+    <animate attributeName="opacity" from="0" to="1" begin="2.1s" dur="0.6s" fill="freeze"/>
+  </g>
+
+  <!-- right side: NOW dial with multi-ring -->
+  <g transform="translate(1110,140)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.4s" dur="0.4s" fill="freeze"/>
+    <!-- outer ring spin clockwise -->
+    <g>
+      <circle cx="0" cy="0" r="58" fill="none" stroke="#ff7b72" stroke-width="1" stroke-dasharray="2 6"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="32s" repeatCount="indefinite"/>
+    </g>
+    <!-- middle ring spin counter-clockwise -->
+    <g>
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#58a6ff" stroke-width="0.8" stroke-dasharray="6 4"/>
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="24s" repeatCount="indefinite"/>
+    </g>
+    <!-- inner solid ring -->
+    <circle cx="0" cy="0" r="40" fill="#0d1117" stroke="#f0f6fc" stroke-width="0.8"/>
+    <text text-anchor="middle" y="-14" class="meta" font-size="8" fill="#ff7b72">— NOW —</text>
+    <text text-anchor="middle" y="8" class="title" font-size="22" fill="#f0f6fc">RUNAI</text>
+    <text text-anchor="middle" y="22" class="meta" font-size="7" fill="#7d8590">v0.11&#183;rust</text>
+    <!-- pulsing dot -->
+    <circle cx="0" cy="42" r="3" fill="#7ee787">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- bottom meta strip with barcode -->
+  <g transform="translate(80,394)">
+    <line x1="0" y1="0" x2="1120" y2="0" stroke="#30363d" stroke-width="0.6"/>
+  </g>
+  <g transform="translate(80,410)">
+    <g class="bar" fill="#f0f6fc" font-size="11">
+      <!-- barcode -->
+      <g>
+        <rect x="0"  y="-12" width="1" height="12"/>
+        <rect x="3"  y="-12" width="2" height="12"/>
+        <rect x="7"  y="-12" width="1" height="12"/>
+        <rect x="10" y="-12" width="3" height="12"/>
+        <rect x="15" y="-12" width="1" height="12"/>
+        <rect x="18" y="-12" width="2" height="12"/>
+        <rect x="22" y="-12" width="1" height="12"/>
+        <rect x="25" y="-12" width="1" height="12"/>
+        <rect x="28" y="-12" width="2" height="12"/>
+        <rect x="32" y="-12" width="3" height="12"/>
+        <rect x="37" y="-12" width="1" height="12"/>
+        <rect x="40" y="-12" width="2" height="12"/>
+        <rect x="44" y="-12" width="1" height="12"/>
+        <rect x="47" y="-12" width="3" height="12"/>
+      </g>
+    </g>
+    <text x="56" y="-2" class="meta" font-size="10" fill="#7d8590">SKU  0 4 1 9 - C R O S E R Y - 2 6</text>
+    <text x="1120" y="-2" text-anchor="end" class="meta" font-size="10" fill="#7d8590">&#8595;  SCROLL  TO  CONTINUE</text>
+  </g>
+
+  <!-- scanning beam (continuous loop) -->
+  <rect x="0" y="0" width="1280" height="60" fill="url(#scanline)" opacity="0.6">
+    <animateTransform attributeName="transform" type="translate" from="0 -60" to="0 420" dur="6s" repeatCount="indefinite"/>
+  </rect>
 </svg>

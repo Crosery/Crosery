@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 60" role="img" aria-label="">
+  <rect width="1280" height="60" fill="#0d1117"/>
+
+  <line x1="0" y1="30" x2="1280" y2="30" stroke="#21262d" stroke-width="0.5"/>
+
+  <polyline
+    points="0,30 240,30 250,30 256,18 264,42 272,10 280,50 288,30 320,30 460,30 470,30 478,26 486,34 494,30 660,30 670,30 678,12 686,48 694,2 702,58 710,22 718,30 870,30 882,30 890,28 898,32 906,30 1040,30 1050,30 1058,18 1066,42 1074,8 1082,52 1090,30 1280,30"
+    fill="none" stroke="#c9d1d9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
+    stroke-dasharray="2200" stroke-dashoffset="2200">
+    <animate attributeName="stroke-dashoffset" from="2200" to="0" dur="4s" begin="0s" repeatCount="indefinite"/>
+  </polyline>
+
+  <circle r="3" fill="#ff7b72">
+    <animateMotion dur="4s" begin="0s" repeatCount="indefinite"
+      path="M0,30 L240,30 L250,30 L256,18 L264,42 L272,10 L280,50 L288,30 L320,30 L460,30 L470,30 L478,26 L486,34 L494,30 L660,30 L670,30 L678,12 L686,48 L694,2 L702,58 L710,22 L718,30 L870,30 L882,30 L890,28 L898,32 L906,30 L1040,30 L1050,30 L1058,18 L1066,42 L1074,8 L1082,52 L1090,30 L1280,30"/>
+  </circle>
+</svg>
