@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 80" role="img" aria-label="signal line">
+  <defs>
+    <style>
+      .meta { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.18em; }
+    </style>
+  </defs>
+
+  <line x1="0" y1="40" x2="1280" y2="40" stroke="#d0d0d0" stroke-width="0.5"/>
+
+  <polyline
+    points="0,40 200,40 215,40 220,25 230,55 240,18 250,62 260,40 280,40 410,40 420,38 430,42 440,30 450,50 460,40 600,40 615,40 620,18 630,62 640,5 650,75 660,30 670,40 820,40 830,38 840,42 850,40 1000,40 1015,40 1020,28 1030,52 1040,15 1050,65 1060,40 1280,40"
+    fill="none" stroke="#0a0a0a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+    stroke-dasharray="2000" stroke-dashoffset="2000">
+    <animate attributeName="stroke-dashoffset" from="2000" to="0" dur="3.5s" begin="0.3s" fill="freeze"/>
+  </polyline>
+
+  <circle r="3.5" fill="#ff2e2e">
+    <animateMotion dur="3.5s" begin="0.3s" fill="freeze"
+      path="M0,40 L200,40 L215,40 L220,25 L230,55 L240,18 L250,62 L260,40 L280,40 L410,40 L420,38 L430,42 L440,30 L450,50 L460,40 L600,40 L615,40 L620,18 L630,62 L640,5 L650,75 L660,30 L670,40 L820,40 L830,38 L840,42 L850,40 L1000,40 L1015,40 L1020,28 L1030,52 L1040,15 L1050,65 L1060,40 L1280,40"/>
+    <animate attributeName="opacity" values="1;0" begin="3.8s" dur="0.4s" fill="freeze"/>
+  </circle>
+
+  <text x="640" y="74" text-anchor="middle" class="meta" font-size="8" fill="#9a9a9a" opacity="0">
+    — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+    <animate attributeName="opacity" from="0" to="1" begin="3.5s" dur="0.5s" fill="freeze"/>
+  </text>
+</svg>

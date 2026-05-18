@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="Crosery — Building AI Toolchains and RL Agents">
+  <defs>
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <style>
+      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+      .sub   { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.32em; }
+      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="360" fill="#fafafa"/>
+  <rect width="1280" height="360" fill="#fff" filter="url(#paper)"/>
+
+  <g fill="none" stroke="#222" stroke-width="0.5" opacity="0.4">
+    <line x1="80"  y1="40" x2="80"  y2="320"/>
+    <line x1="1200" y1="40" x2="1200" y2="320"/>
+    <line x1="80"  y1="40" x2="1200" y2="40"/>
+    <line x1="80"  y1="320" x2="1200" y2="320"/>
+  </g>
+
+  <g class="meta" fill="#9a9a9a" font-size="11">
+    <text x="80" y="32">— THE CROSERY DISPATCH</text>
+    <text x="1200" y="32" text-anchor="end">VOL. 02  /  ISSUE Nº 18  /  MMXXVI</text>
+  </g>
+
+  <g transform="translate(80,220)">
+    <text class="title" font-size="170" fill="#0a0a0a">
+      <tspan x="0"   opacity="0">C<animate attributeName="opacity" from="0" to="1" begin="0.15s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="115" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.22s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="231" opacity="0">O<animate attributeName="opacity" from="0" to="1" begin="0.29s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="354" opacity="0">S<animate attributeName="opacity" from="0" to="1" begin="0.36s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="461" opacity="0">E<animate attributeName="opacity" from="0" to="1" begin="0.43s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="567" opacity="0">R<animate attributeName="opacity" from="0" to="1" begin="0.50s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="683" opacity="0">Y<animate attributeName="opacity" from="0" to="1" begin="0.57s" dur="0.05s" fill="freeze"/></tspan>
+      <tspan x="789" opacity="0" fill="#ff2e2e">.<animate attributeName="opacity" from="0" to="1" begin="0.78s" dur="0.06s" fill="freeze"/></tspan>
+    </text>
+  </g>
+
+  <g transform="translate(80,250)">
+    <rect x="0" y="0" height="3" width="0" fill="#0a0a0a">
+      <animate attributeName="width" from="0" to="1120" begin="0.95s" dur="1.0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+    </rect>
+    <rect x="0" y="0" height="3" width="0" fill="#ff2e2e">
+      <animate attributeName="width" from="0" to="120" begin="1.85s" dur="0.35s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <g class="sub" transform="translate(80,288)" fill="#0a0a0a" font-size="13" opacity="0">
+    <text>BUILDING  AI  TOOLCHAINS  &#183;  RL  AGENTS  &#183;  RUST  SHIPS</text>
+    <animate attributeName="opacity" from="0" to="1" begin="1.6s" dur="0.6s" fill="freeze"/>
+  </g>
+
+  <g class="meta" transform="translate(80,312)" fill="#6a6a6a" font-size="11" opacity="0">
+    <text>crosery.cn  &#8595;  yangtze university  &#8595;  individual developer</text>
+    <animate attributeName="opacity" from="0" to="1" begin="1.95s" dur="0.6s" fill="freeze"/>
+  </g>
+
+  <g transform="translate(1200,312)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.0s" dur="0.5s" fill="freeze"/>
+    <text class="meta" text-anchor="end" font-size="11" fill="#0a0a0a">&#8595;  SCROLL  TO  CONTINUE</text>
+  </g>
+
+  <g transform="translate(1130,100)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.3s" dur="0.4s" fill="freeze"/>
+    <g>
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#ff2e2e" stroke-width="1" stroke-dasharray="3 5"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="22s" repeatCount="indefinite"/>
+    </g>
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+    <text text-anchor="middle" y="-12" class="meta" font-size="8" fill="#ff2e2e">— NOW —</text>
+    <text text-anchor="middle" y="10" class="title" font-size="22" fill="#0a0a0a">PPO</text>
+    <text text-anchor="middle" y="24" class="meta" font-size="7" fill="#6a6a6a">v3.1 / kaiwu</text>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 340" role="img" aria-label="Stack">
+  <defs>
+    <style>
+      .display { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+      .thin    { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 200; letter-spacing: -0.01em; }
+      .meta    { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.12em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="340" fill="#fafafa"/>
+
+  <line x1="80" y1="30" x2="1200" y2="30" stroke="#0a0a0a" stroke-width="0.8"/>
+  <text x="80" y="22" class="meta" font-size="10" fill="#0a0a0a">SECTION 03 / STACK</text>
+  <text x="1200" y="22" text-anchor="end" class="meta" font-size="10" fill="#9a9a9a">A — Z BY USAGE</text>
+
+  <g transform="translate(80,80)">
+    <text class="meta" font-size="10" fill="#ff2e2e" y="0">CORE</text>
+    <text class="display" font-size="78" fill="#0a0a0a" y="60">RUST  ·  PYTHON  ·  TS</text>
+  </g>
+
+  <g transform="translate(80,170)">
+    <text class="meta" font-size="10" fill="#ff2e2e" y="0">AI / RL</text>
+    <text class="thin" font-size="44" fill="#0a0a0a" y="44">pytorch &#8226; kaiwudrl &#8226; reverb &#8226; ppo &#8226; mcp</text>
+  </g>
+
+  <g transform="translate(80,240)">
+    <text class="meta" font-size="10" fill="#ff2e2e" y="0">RUNTIME</text>
+    <text class="thin" font-size="28" fill="#3a3a3a" y="30">linux &#8226; nixos &#8226; niri-wayland &#8226; neovim &#8226; podman</text>
+  </g>
+
+  <g transform="translate(80,278)">
+    <text class="meta" font-size="10" fill="#ff2e2e" y="0">WEB</text>
+    <text class="thin" font-size="22" fill="#3a3a3a" y="26">vite &#8226; next.js &#8226; tailwind &#8226; svg + smil for vibes</text>
+  </g>
+
+  <g transform="translate(1200,80)" text-anchor="end">
+    <text class="meta" font-size="9" fill="#9a9a9a">PRINCIPLES</text>
+    <text class="thin" font-size="16" fill="#0a0a0a" y="24">source &gt; docs</text>
+    <text class="thin" font-size="16" fill="#0a0a0a" y="46">measure, don&#39;t guess</text>
+    <text class="thin" font-size="16" fill="#0a0a0a" y="68">ship narrow, ship done</text>
+    <text class="thin" font-size="16" fill="#0a0a0a" y="90">no emoji, ever</text>
+  </g>
+
+  <g transform="translate(80,328)">
+    <rect width="1120" height="1" fill="#0a0a0a" opacity="0.4"/>
+    <rect x="0" y="0" width="0" height="1" fill="#ff2e2e">
+      <animate attributeName="x" values="0;1120" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="60;0" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

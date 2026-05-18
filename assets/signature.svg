@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 160" role="img" aria-label="signature">
+  <defs>
+    <style>
+      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.18em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="160" fill="#0a0a0a"/>
+
+  <g class="meta" fill="#6a6a6a" font-size="10">
+    <text x="80" y="32">— THE CROSERY DISPATCH</text>
+    <text x="1200" y="32" text-anchor="end">END  /  THANK YOU FOR READING  /  MMXXVI</text>
+  </g>
+
+  <line x1="80" y1="42" x2="1200" y2="42" stroke="#3a3a3a" stroke-width="0.5"/>
+
+  <g transform="translate(80,110)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.3s" dur="0.8s" fill="freeze"/>
+    <text class="title" font-size="56" fill="#f4f4f4">
+      ciallo<tspan fill="#ff2e2e">.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(1200,110)" opacity="0" text-anchor="end">
+    <animate attributeName="opacity" from="0" to="1" begin="0.7s" dur="0.6s" fill="freeze"/>
+    <text class="meta" font-size="11" fill="#9a9a9a">DESIGN  /  CODE  /  WRITING  /  ALL  BY  CROSERY</text>
+    <text class="meta" font-size="11" fill="#6a6a6a" y="20">crosery.cn  ·  github.com/Crosery</text>
+  </g>
+
+  <g transform="translate(80,148)">
+    <rect width="0" height="1" fill="#ff2e2e">
+      <animate attributeName="width" from="0" to="1120" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

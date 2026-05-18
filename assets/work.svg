@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-label="Work">
+  <defs>
+    <style>
+      .num   { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.04em; }
+      .title { font-family: 'Helvetica Neue', 'Arial Black', Impact, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+      .h     { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: 0.24em; }
+      .body  { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; }
+      .meta  { font-family: 'Courier New', monospace; font-weight: 400; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="760" fill="#fafafa"/>
+
+  <line x1="80" y1="30" x2="1200" y2="30" stroke="#0a0a0a" stroke-width="0.8"/>
+  <text x="80" y="22" class="meta" font-size="10" fill="#0a0a0a">SECTION 02 / WORK</text>
+  <text x="1200" y="22" text-anchor="end" class="meta" font-size="10" fill="#9a9a9a">SEVEN SHIPS YOU SHOULDN&#8217;T MISS</text>
+
+  <text x="80" y="100" class="title" font-size="60" fill="#0a0a0a">SHIPPED<tspan fill="#ff2e2e">.</tspan></text>
+  <text x="80" y="125" class="h" font-size="11" fill="#6a6a6a">38 PUBLIC REPOS · ACTIVE 2026</text>
+
+  <!-- ENTRY 01 -->
+  <g transform="translate(80,200)">
+    <text class="num" font-size="68" fill="#ff2e2e" y="0">01</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="11" fill="#9a9a9a" y="0">RUST &#183; CLI &#183; MCP</text>
+      <text class="title" font-size="32" fill="#0a0a0a" y="32">RUNAI</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI skill / MCP 资源管理器，TUI + MCP server，</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="70">跨 Claude / Codex / Gemini / OpenCode 统一管理 skills、MCPs、groups。</text>
+    </g>
+    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
+  </g>
+
+  <!-- ENTRY 02 -->
+  <g transform="translate(80,340)">
+    <text class="num" font-size="68" fill="#0a0a0a" y="0">02</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="11" fill="#9a9a9a" y="0">RUST &#183; MULTI-AGENT &#183; ORCHESTRATION</text>
+      <text class="title" font-size="32" fill="#0a0a0a" y="32">ACP-BUS</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="50">多 AI Agent 协作总线，让 AI 组团干活，</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="70">topic 订阅 + 消息路由，把 Claude / Codex / Gemini 串成 pipeline。</text>
+    </g>
+    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
+  </g>
+
+  <!-- ENTRY 03 -->
+  <g transform="translate(80,480)">
+    <text class="num" font-size="68" fill="#0a0a0a" y="0">03</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="11" fill="#9a9a9a" y="0">JS &#183; ZERO-DEPS &#183; CLI</text>
+      <text class="title" font-size="32" fill="#0a0a0a" y="32">AREAD</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI-friendly web reader + DuckDuckGo search CLI，</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="70">把任意 URL 抓成 Markdown，零依赖、无 API key。</text>
+    </g>
+    <line x1="0" y1="50" x2="1120" y2="50" stroke="#0a0a0a" stroke-width="0.4" opacity="0.3"/>
+  </g>
+
+  <!-- ENTRY 04 -->
+  <g transform="translate(80,620)">
+    <text class="num" font-size="68" fill="#0a0a0a" y="0">04</text>
+    <g transform="translate(150,-40)">
+      <text class="h" font-size="11" fill="#9a9a9a" y="0">PYTHON &#183; AI &#183; CREATIVE SYSTEM</text>
+      <text class="title" font-size="32" fill="#0a0a0a" y="32">PPT-ANYTHING</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="50">AI story-deck generator，给 topic 出连贯插画 PPT，</text>
+      <text class="body" font-size="14" fill="#3a3a3a" y="70">recurring characters + visual taste，不是 markdown 转 slide 玩具。</text>
+    </g>
+  </g>
+
+  <g transform="translate(80,730)">
+    <text class="meta" font-size="11" fill="#6a6a6a">&#8594; 翻下去还有 NIRI-SWITCHER &#183; ARK_RL &#183; SIGNAL-KEEPER &#183; KAIWU &#183; ...</text>
+  </g>
+
+  <!-- left red bar animate -->
+  <g transform="translate(0,160)">
+    <rect width="56" height="0" fill="#ff2e2e">
+      <animate attributeName="height" from="0" to="540" dur="2.4s" begin="0.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+    </rect>
+  </g>
+</svg>
