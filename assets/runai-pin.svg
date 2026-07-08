@@ -16,7 +16,7 @@
   <g transform="translate(30,200)">
     <g>
       <text class="meta" font-size="9" fill="#7d8590">STARS</text>
-      <text class="num" font-size="44" fill="#f0f6fc" y="44">11</text>
+      <text class="num" font-size="44" fill="#f0f6fc" y="44">12</text>
       <line x1="0" y1="54" x2="60" y2="54" stroke="#ffd33d" stroke-width="1.5"/>
     </g>
     <g transform="translate(160,0)">
