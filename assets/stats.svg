@@ -52,7 +52,7 @@
   </g>
   <g transform="translate(410,250)">
     <text class="meta" font-size="9" fill="#7d8590">ISSUES OPENED</text>
-    <text class="title" font-size="48" fill="#f0f6fc" y="48">37</text>
+    <text class="title" font-size="48" fill="#f0f6fc" y="48">38</text>
     <line x1="0" y1="58" x2="80" y2="58" stroke="#f0883e" stroke-width="1.5"/>
     <rect x="0" y="68" width="0" height="2" fill="#f0883e">
       <animate attributeName="width" from="0" to="160" dur="1.4s" begin="0.50s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
