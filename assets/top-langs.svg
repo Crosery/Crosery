@@ -13,26 +13,26 @@
   <text x="30" y="94" class="meta" font-size="10" fill="#7d8590">includes html/css/assets — daily-driver lang is rust + py</text>
   <g transform="translate(30,130)">
     <text class="name" font-size="14" fill="#f0f6fc">HTML</text>
-    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">38.3%</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">37.7%</text>
     <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
     <line x1="0" y1="12" x2="0" y2="12" stroke="#e34c26" stroke-width="3">
-      <animate attributeName="x2" from="0" to="153" dur="1.6s" begin="0.00s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+      <animate attributeName="x2" from="0" to="150" dur="1.6s" begin="0.00s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
     </line>
   </g>
   <g transform="translate(30,168)">
     <text class="name" font-size="14" fill="#f0f6fc">C</text>
-    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">32.9%</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">32.4%</text>
     <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
     <line x1="0" y1="12" x2="0" y2="12" stroke="#555555" stroke-width="3">
-      <animate attributeName="x2" from="0" to="131" dur="1.6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+      <animate attributeName="x2" from="0" to="129" dur="1.6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
     </line>
   </g>
   <g transform="translate(30,206)">
     <text class="name" font-size="14" fill="#f0f6fc">Rust</text>
-    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">15.2%</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">16.4%</text>
     <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
     <line x1="0" y1="12" x2="0" y2="12" stroke="#dea584" stroke-width="3">
-      <animate attributeName="x2" from="0" to="60" dur="1.6s" begin="0.30s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+      <animate attributeName="x2" from="0" to="65" dur="1.6s" begin="0.30s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
     </line>
   </g>
   <g transform="translate(30,244)">
@@ -48,12 +48,12 @@
     <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">3.5%</text>
     <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
     <line x1="0" y1="12" x2="0" y2="12" stroke="#3178c6" stroke-width="3">
-      <animate attributeName="x2" from="0" to="14" dur="1.6s" begin="0.60s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
+      <animate attributeName="x2" from="0" to="13" dur="1.6s" begin="0.60s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
     </line>
   </g>
   <g transform="translate(30,320)">
     <text class="name" font-size="14" fill="#f0f6fc">CSS</text>
-    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">3.4%</text>
+    <text class="pct" font-size="14" fill="#7d8590" text-anchor="end" x="540">3.3%</text>
     <line x1="0" y1="12" x2="540" y2="12" stroke="#21262d" stroke-width="2"/>
     <line x1="0" y1="12" x2="0" y2="12" stroke="#663399" stroke-width="3">
       <animate attributeName="x2" from="0" to="13" dur="1.6s" begin="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
