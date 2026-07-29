@@ -12,7 +12,7 @@
   <text x="30" y="94" class="meta" font-size="10" fill="#7d8590">pulled fresh from github graphql api</text>
   <g transform="translate(30,140)">
     <text class="meta" font-size="9" fill="#7d8590">STARS EARNED</text>
-    <text class="title" font-size="48" fill="#f0f6fc" y="48">71</text>
+    <text class="title" font-size="48" fill="#f0f6fc" y="48">73</text>
     <line x1="0" y1="58" x2="80" y2="58" stroke="#ff7b72" stroke-width="1.5"/>
     <rect x="0" y="68" width="0" height="2" fill="#ff7b72">
       <animate attributeName="width" from="0" to="160" dur="1.4s" begin="0.00s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
@@ -20,7 +20,7 @@
   </g>
   <g transform="translate(220,140)">
     <text class="meta" font-size="9" fill="#7d8590">PUBLIC REPOS</text>
-    <text class="title" font-size="48" fill="#f0f6fc" y="48">30</text>
+    <text class="title" font-size="48" fill="#f0f6fc" y="48">31</text>
     <line x1="0" y1="58" x2="80" y2="58" stroke="#58a6ff" stroke-width="1.5"/>
     <rect x="0" y="68" width="0" height="2" fill="#58a6ff">
       <animate attributeName="width" from="0" to="160" dur="1.4s" begin="0.10s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
@@ -44,7 +44,7 @@
   </g>
   <g transform="translate(220,250)">
     <text class="meta" font-size="9" fill="#7d8590">FOLLOWERS</text>
-    <text class="title" font-size="48" fill="#f0f6fc" y="48">61</text>
+    <text class="title" font-size="48" fill="#f0f6fc" y="48">62</text>
     <line x1="0" y1="58" x2="80" y2="58" stroke="#ffd33d" stroke-width="1.5"/>
     <rect x="0" y="68" width="0" height="2" fill="#ffd33d">
       <animate attributeName="width" from="0" to="160" dur="1.4s" begin="0.40s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.22 1 0.36 1"/>
