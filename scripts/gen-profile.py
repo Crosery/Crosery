@@ -53,9 +53,46 @@ DIALOG = (
 TYPE_CPS = 26  # typing speed, glyphs per second
 TYPE_HOLD = 12.0  # seconds the finished message stays before it types again
 SIGN_OFF = "ciallo～[∠・ω< ]⌒★"
+FAREWELL = "Thanks for scrolling."
+
+# 7-px pictograms for the sign-off card: home, envelope, repository, X.
+ICON_HOME = (
+    "...#...",
+    "..###..",
+    ".#####.",
+    "#######",
+    ".#####.",
+    ".##.##.",
+    ".##.##.",
+)
+ICON_MAIL = (
+    "#######",
+    "##...##",
+    "#.#.#.#",
+    "#..#..#",
+    "#.....#",
+    "#######",
+)
+ICON_CAT = (  # a small cat face for the GitHub handle
+    "#.....#",
+    "##...##",
+    "#######",
+    "#.###.#",
+    "#######",
+    ".#.#.#.",
+    "..###..",
+)
+ICON_X = (
+    "##...##",
+    ".##.##.",
+    "..###..",
+    "..###..",
+    ".##.##.",
+    "##...##",
+)
 CONTACT = (
-    "crosery.cn · luoxi2024@foxmail.com",
-    f"github.com/{USER} · x.com/XiLuo4125248565",
+    ((ICON_HOME, "crosery.cn"), (ICON_MAIL, "luoxi2024@foxmail.com")),
+    ((ICON_CAT, f"@{USER}"), (ICON_X, "@XiLuo4125248565")),
 )
 
 
@@ -183,20 +220,25 @@ def fmt(n: int) -> str:
 
 
 def ago(iso: str) -> str:
+    """Relative push time at day granularity.
+
+    The cards are rebuilt once a day, so hours and minutes would be wrong for
+    most of the time a card is on screen; days stay true until the next run.
+    """
     try:
         when = datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
     except (TypeError, ValueError):
         return ""
-    secs = (datetime.now(timezone.utc) - when).total_seconds()
-    if secs < 3600:
-        return f"{max(1, int(secs // 60))}m ago"
-    if secs < 86400:
-        return f"{int(secs // 3600)}h ago"
-    if secs < 86400 * 30:
-        return f"{int(secs // 86400)}d ago"
-    if secs < 86400 * 365:
-        return f"{int(secs // (86400 * 30))}mo ago"
-    return f"{int(secs // (86400 * 365))}y ago"
+    days = int((datetime.now(timezone.utc) - when).total_seconds() // 86400)
+    if days <= 0:
+        return "today"
+    if days == 1:
+        return "yesterday"
+    if days < 30:
+        return f"{days}d ago"
+    if days < 365:
+        return f"{days // 30}mo ago"
+    return f"{days // 365}y ago"
 
 
 LANG_COLORS: dict[str, str] = {}
@@ -644,13 +686,38 @@ def activity(d: dict) -> tuple[str, list[str]]:
 
 
 def signature(d: dict) -> tuple[str, list[str]]:
-    H = 48
+    """Sign-off: the kaomoji as the last line of dialogue, contacts as a menu."""
+    H = 58
+    ground = 46
     a = Art("signature.svg", W, H, f"{USER} — {SIGN_OFF}")
     a.window("sign", 0, 4, W - 1, H - 5, pad=4)
-    a.text(12, 12, SIGN_OFF, pix.INK, F, "ciallo", "sign", bold=True)
-    a.twinkle(12 + F.width(SIGN_OFF, 1) + 6, 12, pix.SPARKLE_S, pix.HONEY, dur=2.6)
-    for i, line in enumerate(CONTACT):
-        a.text_right(W - 12, 10 + i * 14, line, pix.COCOA, F, f"contact.{i}", "sign")
+
+    # the same ground the hero stands on, closing the page where it opened
+    a.rect(2, ground, W - 5, 55 - ground, pix.CREAM)
+    a.hline(2, ground, W - 5, pix.LATTE)
+    a.flush()
+    for tx_ in (10, 160, 292, 404):
+        a.icon(tx_, ground - 2, pix.TUFT, pix.LATTE)
+    for fx in (118, 356):
+        a.sprite(fx, ground - 5, pix.FLOWER, {"#": pix.ROSE, "o": pix.HONEY, "|": pix.TAUPE})
+    a.flush()
+
+    kw = a.text(12, 10, SIGN_OFF, pix.INK, F, "ciallo", "sign", bold=True)
+    a.twinkle(12 + kw + 5, 11, pix.SPARKLE_S, pix.HONEY, dur=2.6)
+    a.twinkle(12 + kw + 13, 22, pix.SPARKLE_XS, pix.ROSE, dur=3.1, begin=1.1)
+    a.text(12, 25, FAREWELL, pix.COCOA, F, "farewell", "sign")
+
+    # two columns of icon + handle, right-aligned as a block
+    right = W - 12
+    col_w = [max(F.width(t) for _, t in col) + 10 for col in zip(*CONTACT)]
+    x1 = right - col_w[1]
+    x0 = x1 - 14 - col_w[0]
+    for r, row in enumerate(CONTACT):
+        y = 10 + r * 15
+        for c, (icon, label) in enumerate(row):
+            x = (x0, x1)[c]
+            a.icon(x, y + 3, icon, pix.COCOA, f"contact.{r}.{c}.icon", "sign")
+            a.text(x + 10, y, label, pix.COCOA, F, f"contact.{r}.{c}", "sign")
     return a.done()
 
 
