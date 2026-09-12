@@ -23,26 +23,26 @@ from dataclasses import dataclass, field
 import font_10
 
 # ------------------------------------------------------------------ palette --
-# The portrait's own range — milk sweater, cream hair, amber iris, warm brown
-# ink — with pixel-art rules applied: the sky and every shadow lean lavender,
-# so the warm set has one cool colour to sit against and does not go flat.
+# Six colours come from profile.toml; the rest are derived there so a fork
+# that changes `ink` or `amber` gets matching hairlines, sparkles and shadows.
+# Pixel-art rule kept from the original: the sky leans cool (lavender) so the
+# warm set has one colour to sit against and does not go flat.
+from config import CONFIG as _CFG
 
-MILK = "#fff7ef"  # window fill, sweater
-CREAM = "#f7e8d8"  # hair light, ground
-PEACH = "#f6d7c3"  # sky, low band
-BLUSH = "#f2bfb8"  # cheeks, sky mid band
-ROSE = "#dd8f8c"  # flowers, the snake
-AMBER = "#dba85f"  # iris, stars, bars
-HONEY = "#f0cf8f"  # amber light
-LATTE = "#d9c2ad"  # hair shadow, tracks, hairlines
-TAUPE = "#b39a89"  # decorative only (2.5:1 on milk)
-COCOA = "#8a6a55"  # secondary text (4.6:1 on milk)
-INK = "#4a3427"  # primary text, outlines (10.9:1 on milk)
-LAVENDER = "#cfc8de"  # sky top, cool shadow
-DUSK = "#a89cbf"  # lavender deep
+_P = _CFG.palette
+MILK = _P.milk  # window fill
+CREAM = _P.cream  # ground, light hair
+INK = _P.ink  # primary text, outlines
+COCOA = _P.cocoa  # secondary text
+AMBER = _P.amber  # stars, bars, calendar mid-tones
+ROSE = _P.rose  # flowers, the snake
+HONEY = _P.honey  # light amber: sparkles
+LATTE = _P.latte  # hairlines, bar tracks
+TAUPE = _P.taupe  # stems, decorative only
+CARAMEL = _P.caramel  # calendar level 3
+CALENDAR_EMPTY = _P.calendar_empty
+SKY = _P.sky  # hero sky bands, top to bottom
 WHITE = "#ffffff"
-
-SKY = (LAVENDER, "#e4d0d6", BLUSH, PEACH, CREAM)  # top to bottom
 
 
 # ------------------------------------------------------------------- fonts --
@@ -812,20 +812,6 @@ def _merge(rects: list[Run]) -> list[Run]:
     return out
 
 
-def mix(a: str, b: str, t: float) -> str:
-    ra, ga, ba = (int(a[i : i + 2], 16) for i in (1, 3, 5))
-    rb, gb, bb = (int(b[i : i + 2], 16) for i in (1, 3, 5))
-    return f"#{round(ra + (rb - ra) * t):02x}{round(ga + (gb - ga) * t):02x}{round(ba + (bb - ba) * t):02x}"
+from config import contrast, mix
 
-
-def contrast(a: str, b: str) -> float:
-    def lum(h: str) -> float:
-        out = []
-        for i in (1, 3, 5):
-            c = int(h[i : i + 2], 16) / 255
-            out.append(c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4)
-        return 0.2126 * out[0] + 0.7152 * out[1] + 0.0722 * out[2]
-
-    la, lb = lum(a), lum(b)
-    hi, lo = max(la, lb), min(la, lb)
-    return (hi + 0.05) / (lo + 0.05)
+__all__ = ["F10", "Art", "Font", "contrast", "mix"]

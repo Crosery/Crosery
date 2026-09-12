@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Render the Crosery profile cards from live GitHub data.
+"""Render the profile cards from `profile.toml` and live GitHub data.
 
-    python3 scripts/gen-profile.py            # fetch + render
+    python3 scripts/gen-profile.py            # fetch + render + rewrite README.md
     python3 scripts/gen-profile.py --offline  # render from .cache/github.json
 
 Reads GITHUB_TOKEN (or GH_TOKEN) for the GraphQL API and falls back to the `gh`
@@ -10,12 +10,12 @@ CLI, so it runs on the Actions runner and in a developer shell alike.
 Pure stdlib at build time. Everything visual is frozen into committed modules:
 
     font_10.py        Fusion Pixel Font 10 px bitmaps (OFL 1.1)
-    sprite_data.py    the portrait as a 96 px pixel grid
-    wordmark.py       the hand-drawn "Crosery" logotype
+    sprite_data.py    the portrait as a 96 px pixel grid (scripts/gen-sprite.py)
+    wordmark.py       the hand-drawn pixel logotype for the title
 
-and the drawing primitives live in `pix.py`. Every card is authored on a
-423-px art grid and emitted at 2x, so on GitHub's 846-px README column one
-art pixel is exactly two CSS pixels.
+Drawing primitives live in `pix.py`, the palette and copy in `profile.toml`
+via `config.py`. Every card is authored on a 423-px art grid and emitted at
+2x, so on GitHub's 846-px README column one art pixel is two CSS pixels.
 """
 
 from __future__ import annotations
@@ -33,67 +33,119 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pix
 import sprite_data as SPRITE
 import wordmark
+from config import CONFIG, ROOT
 from pix import F10 as F
 from pix import Art
 
-USER = "Crosery"
-ROOT = Path(__file__).resolve().parent.parent
+USER = CONFIG.login
 ASSETS = ROOT / "assets"
 CACHE = ROOT / ".cache" / "github.json"
+TEMPLATE = ROOT / "README.template.md"
+README = ROOT / "README.md"
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 
 W = 423  # art px; 846 CSS px on GitHub
 
-# Author-written copy. Lives here, not in the data, so a missing glyph in our
-# own words still fails the build (GitHub-sourced strings go through printable).
-DIALOG = (
-    "I build AI toolchains, multi-agent systems and Rust CLIs.",
-    "ACG & Yuzu-Soft fan at Yangtze University. Blog: crosery.cn",
-)
-TYPE_CPS = 26  # typing speed, glyphs per second
-TYPE_HOLD = 12.0  # seconds the finished message stays before it types again
-SIGN_OFF = "ciallo～[∠・ω< ]⌒★"
-FAREWELL = "Thanks for scrolling."
-
-# 7-px pictograms for the sign-off card: home, envelope, repository, X.
-ICON_HOME = (
-    "...#...",
-    "..###..",
-    ".#####.",
-    "#######",
-    ".#####.",
-    ".##.##.",
-    ".##.##.",
-)
-ICON_MAIL = (
-    "#######",
-    "##...##",
-    "#.#.#.#",
-    "#..#..#",
-    "#.....#",
-    "#######",
-)
-ICON_CAT = (  # a small cat face for the GitHub handle
-    "#.....#",
-    "##...##",
-    "#######",
-    "#.###.#",
-    "#######",
-    ".#.#.#.",
-    "..###..",
-)
-ICON_X = (
-    "##...##",
-    ".##.##.",
-    "..###..",
-    "..###..",
-    ".##.##.",
-    "##...##",
-)
-CONTACT = (
-    ((ICON_HOME, "crosery.cn"), (ICON_MAIL, "luoxi2024@foxmail.com")),
-    ((ICON_CAT, f"@{USER}"), (ICON_X, "@crosery2022")),
-)
+# 7-px pictograms for the sign-off contacts, by the icon name used in profile.toml.
+ICONS: dict[str, tuple[str, ...]] = {
+    "home": (
+        "...#...",
+        "..###..",
+        ".#####.",
+        "#######",
+        ".#####.",
+        ".##.##.",
+        ".##.##.",
+    ),
+    "mail": (
+        "#######",
+        "##...##",
+        "#.#.#.#",
+        "#..#..#",
+        "#.....#",
+        "#######",
+    ),
+    "github": (  # a small cat face
+        "#.....#",
+        "##...##",
+        "#######",
+        "#.###.#",
+        "#######",
+        ".#.#.#.",
+        "..###..",
+    ),
+    "x": (
+        "##...##",
+        ".##.##.",
+        "..###..",
+        "..###..",
+        ".##.##.",
+        "##...##",
+    ),
+    "blog": (  # a pen nib
+        ".....##",
+        "....###",
+        "...###.",
+        "..###..",
+        ".###...",
+        "###....",
+        "#......",
+    ),
+    "rss": (
+        ".......",
+        "###....",
+        "...##..",
+        "##...#.",
+        "..##.#.",
+        "#..#.#.",
+        "##.#.#.",
+    ),
+    "discord": (  # a controller
+        ".#####.",
+        "#######",
+        "##.#.##",
+        "#######",
+        "##...##",
+        "#.....#",
+        ".......",
+    ),
+    "telegram": (  # a paper plane
+        "......#",
+        "....###",
+        "..#####",
+        "#######",
+        "..###..",
+        "...##..",
+        "....#..",
+    ),
+    "bilibili": (  # a TV
+        "#.....#",
+        ".#...#.",
+        "#######",
+        "#.....#",
+        "#.#.#.#",
+        "#.....#",
+        "#######",
+    ),
+    "mastodon": (  # an elephant head
+        ".#####.",
+        "#######",
+        "#.#.#.#",
+        "#######",
+        ".#####.",
+        "..#.#..",
+        "..#.#..",
+    ),
+    "linkedin": (
+        "#######",
+        "#.#.#.#",
+        "#.#.#.#",
+        "#.#.#.#",
+        "#.#.#.#",
+        "#.#...#",
+        "#######",
+    ),
+}
 
 
 # ---------------------------------------------------------------- fetching --
@@ -139,7 +191,7 @@ def gql(query: str, variables: dict) -> dict:
             headers={
                 "Authorization": f"bearer {TOKEN}",
                 "Content-Type": "application/json",
-                "User-Agent": "crosery-profile-generator",
+                "User-Agent": "pixel-profile-generator",
             },
             method="POST",
         )
@@ -158,7 +210,8 @@ def gql(query: str, variables: dict) -> dict:
 def printable(s: str | None) -> str:
     """Drop characters the pixel font cannot draw (emoji, joiners, selectors).
 
-    Applied to every string that arrives from GitHub, never to our own copy.
+    Applied to every string that arrives from GitHub, never to the copy in
+    profile.toml, where a missing glyph must fail the build instead.
     """
     if not s:
         return ""
@@ -169,17 +222,22 @@ def printable(s: str | None) -> str:
 
 
 def fetch() -> dict:
-    return clean(gql(QUERY, {"login": USER})["user"])
+    user = gql(QUERY, {"login": USER})["user"]
+    if user is None:
+        raise SystemExit(
+            f"GitHub has no user named {USER!r}; check [github].login in profile.toml"
+        )
+    return clean(user)
 
 
 def clean(data: dict) -> dict:
     """Sanitise GitHub strings and guarantee a non-empty pinned list.
 
     `pinnedItems` resolves against the viewer; under an Actions installation
-    token that is a bot, and the list has historically come back empty. That
-    is treated as a degradation: fall back to the most-starred repositories
-    and label the card accordingly, so a permissions surprise cannot blank
-    the centrepiece.
+    token that is a bot, and the list has come back empty before. That is
+    treated as a degradation: fall back to the most-starred repositories and
+    label the card accordingly, so a permissions surprise cannot blank the
+    centrepiece.
     """
     data["bio"] = printable(data.get("bio"))
     data["location"] = printable(data.get("location"))
@@ -203,7 +261,7 @@ def clean(data: dict) -> dict:
         ranked = sorted(
             data["repositories"]["nodes"], key=lambda r: -(r.get("stargazerCount") or 0)
         )
-        data["pinnedItems"]["nodes"] = ranked[:6]
+        data["pinnedItems"]["nodes"] = ranked[: CONFIG.pinned_fallback]
         data["_pinned_source"] = "stars"
     return data
 
@@ -291,19 +349,34 @@ def gem(
     )
 
 
-def draw_wordmark(a: Art, x: int, y: int) -> tuple[int, int]:
-    cells = wordmark.cells()
-    for cx, cy in cells:
-        a.rect(cx + x - 1, cy + y - 1, 3, 3, pix.INK)  # outline ring, 1 px around
+def draw_title(a: Art, x: int, y: int, max_w: int) -> tuple[int, int]:
+    """The title: the pixel logotype when every letter exists, else the font at 2x.
+
+    Both get the same treatment — ink ring, cocoa inner shadow, milk face — so
+    a fork whose name has digits still lands on a title-screen logo.
+    """
+    rendered = wordmark.render(CONFIG.title)
+    if rendered and rendered[1] <= max_w:
+        cells, w, h = rendered
+        rects = [(cx, cy, 1, 1) for cx, cy in cells]
+    else:
+        text = F.clip(CONFIG.title, max_w // 2 - 2, 1)
+        runs, adv = F.runs(0, 0, text, 1)
+        rects = [(rx * 2, ry * 2, rw * 2, rh * 2) for rx, ry, rw, rh in runs]
+        rects += [(rx + 2, ry, rw, rh) for rx, ry, rw, rh in rects]  # bold
+        w, h = adv * 2, F.line * 2
+        y += (wordmark.HEIGHT - h) // 2
+        h += (wordmark.HEIGHT - h) // 2  # bottom edge measured from the caller's y
+    for rx, ry, rw, rh in rects:
+        a.rect(x + rx - 1, y + ry - 1, rw + 2, rh + 2, pix.INK)
     a.flush()
-    for cx, cy in cells:
-        a.px(cx + x + 1, cy + y + 1, pix.COCOA)  # inner shadow, down-right
+    for rx, ry, rw, rh in rects:
+        a.rect(x + rx + 1, y + ry + 1, rw, rh, pix.COCOA)
     a.flush()
-    for cx, cy in cells:
-        a.px(cx + x, cy + y, pix.MILK)
+    for rx, ry, rw, rh in rects:
+        a.rect(x + rx, y + ry, rw, rh, pix.MILK)
     a.flush()
-    w, h = wordmark.size()
-    a.led.claim("wordmark", x - 1, y - 1, w + 2, h + 2, None)
+    a.led.claim("title", x - 1, y - 1, w + 2, h + 2, None)
     return w, h
 
 
@@ -324,9 +397,8 @@ def draw_sprite(a: Art, x: int, y: int) -> None:
 def pack_units(bio: str, max_w: int, max_lines: int = 2) -> list[str]:
     """Wrap a ' · '-separated bio at its separators only.
 
-    A unit such as the kaomoji `ciallo～[∠・ω< ]⌒★` must never be split in
-    the middle, so lines are packed unit by unit and an oversized unit is
-    clipped rather than broken.
+    A unit such as a kaomoji must never be split in the middle, so lines are
+    packed unit by unit and an oversized unit is clipped rather than broken.
     """
     units = [u.strip() for u in bio.replace("·", " · ").split(" · ") if u.strip()]
     lines: list[str] = []
@@ -354,19 +426,33 @@ def header(
     a.text_right(right, y + 2, note, pix.COCOA, F, "note")
 
 
+def ground_strip(
+    a: Art, ground: int, bottom: int, tufts: tuple[int, ...], flowers: tuple[int, ...]
+) -> None:
+    a.rect(2, ground, W - 5, bottom - ground, pix.CREAM)
+    a.hline(2, ground, W - 5, pix.LATTE)
+    a.flush()
+    for tx in tufts:
+        a.icon(tx, ground - 2, pix.TUFT, pix.LATTE)
+    for fx in flowers:
+        a.sprite(
+            fx, ground - 5, pix.FLOWER, {"#": pix.ROSE, "o": pix.HONEY, "|": pix.TAUPE}
+        )
+    a.flush()
+
+
 # -------------------------------------------------------------------- cards --
 
 
 def hero(d: dict) -> tuple[str, list[str]]:
-    H = 170
-    ground = 104
+    facts = list(CONFIG.facts)
+    H = 170 + (14 if facts else 0)
+    ground = 104 + (14 if facts else 0)
     a = Art("hero.svg", W, H, f"{USER} — pixel profile")
     a.window("hero", 0, 0, W - 1, H - 1, fill=pix.CREAM, inner=None)
 
     # ---- scene: sky bands, ground line, clouds, sparkles
     a.bands(2, 2, W - 5, ground - 2, pix.SKY, blend=4)
-    a.rect(2, ground, W - 5, H - 3 - ground, pix.CREAM)
-    a.hline(2, ground, W - 5, pix.LATTE)
     a.flush()
     a.icon(262, 18, pix.CLOUD_S, pix.WHITE)
     a.icon(304, 6, pix.CLOUD_L, pix.WHITE)
@@ -375,12 +461,7 @@ def hero(d: dict) -> tuple[str, list[str]]:
     a.twinkle(116, 66, pix.SPARKLE_XS, pix.WHITE, dur=3.4, begin=0.9)
     a.twinkle(342, 4, pix.SPARKLE_XS, pix.HONEY, dur=2.2, begin=1.4)
     a.flush()
-    for tx_ in (6, 112, 412):
-        a.icon(tx_, ground - 2, pix.TUFT, pix.LATTE)
-    a.sprite(
-        120, ground - 5, pix.FLOWER, {"#": pix.ROSE, "o": pix.HONEY, "|": pix.TAUPE}
-    )
-    a.flush()
+    ground_strip(a, ground, H - 3, (6, 112, 412), (120,))
 
     # ---- portrait token standing on the ground line
     sx, sy = 14, ground - SPRITE.SIZE
@@ -393,9 +474,14 @@ def hero(d: dict) -> tuple[str, list[str]]:
     # ---- title block
     tx = 128
     right = W - 12
-    draw_wordmark(a, tx, 12)
-    bio = d.get("bio") or "individual developer"
-    y = a.para(tx, 46, pack_units(bio, right - tx), pix.INK, F, "bio", "hero") + 4
+    _tw, th = draw_title(a, tx, 12, right - tx)
+    bio = d.get("bio") or d.get("name") or USER
+    y = a.para(tx, 12 + th + 6, pack_units(bio, right - tx), pix.INK, F, "bio", "hero") + 4
+    if facts:
+        a.text(
+            tx, y, F.clip(" · ".join(facts), right - tx), pix.COCOA, F, "facts", "hero"
+        )
+        y += 14
     stars = sum(r.get("stargazerCount") or 0 for r in d["repositories"]["nodes"])
     rows = (
         (
@@ -423,22 +509,27 @@ def hero(d: dict) -> tuple[str, list[str]]:
     # ---- message window: the character speaks, one glyph at a time
     dx, dy = 10, ground + 10
     dw, dh = W - 21, H - 3 - dy - 2
+    lines = CONFIG.dialog
+    dh = max(dh, 10 + 14 * len(lines) + 8)
+    if dy + dh > H - 5:  # a third line needs a taller card
+        H = dy + dh + 5
+        a.h = H
     inner = a.window(
         "dialog", dx, dy, dw, dh, fill=pix.MILK, inner=pix.CREAM, shadow=False, pad=5
     )
-    a.tab(dx + 8, dy - 7, USER, name="speaker")
-    glyphs = sum(len(line.replace(" ", "")) for line in DIALOG)
-    period = 0.6 + glyphs / TYPE_CPS + 0.4 * len(DIALOG) + TYPE_HOLD
+    a.tab(dx + 8, dy - 7, CONFIG.speaker, name="speaker")
+    glyphs = sum(len(line.replace(" ", "")) for line in lines)
+    period = 0.6 + glyphs / CONFIG.type_speed + 0.4 * len(lines) + CONFIG.type_hold
     t = 0.6
-    for i, line in enumerate(DIALOG):
+    for i, line in enumerate(lines):
         _, t = a.typewriter(
             inner[0] + 4,
             inner[1] + 3 + i * 14,
-            line,
+            F.clip(line, inner[2] - 14),
             pix.INK,
             F,
             t,
-            TYPE_CPS,
+            CONFIG.type_speed,
             period,
             f"dialog.{i}",
             "dialog",
@@ -452,7 +543,7 @@ def hero(d: dict) -> tuple[str, list[str]]:
 
 def pinned(d: dict) -> tuple[str, list[str]]:
     repos = [r for r in d["pinnedItems"]["nodes"] if r]
-    cols = 2
+    cols = 2 if len(repos) > 1 else 1
     n_rows = (len(repos) + cols - 1) // cols
     top, pitch, cell_h = 24, 63, 58
     H = top + (n_rows - 1) * pitch + cell_h + 12
@@ -468,7 +559,7 @@ def pinned(d: dict) -> tuple[str, list[str]]:
     )
 
     gap = 11
-    col_w = (W - 24 - gap) // cols
+    col_w = (W - 24 - gap * (cols - 1)) // cols
     for i, repo in enumerate(repos):
         r, c = divmod(i, cols)
         cx = 12 + c * (col_w + gap)
@@ -503,7 +594,7 @@ def pin_cell(a: Art, repo: dict, idx: int, x: int, y: int, w: int) -> None:
         bold=True,
     )
     owner = (repo.get("owner") or {}).get("login") or USER
-    if owner != USER:
+    if owner.lower() != USER.lower():
         handle = f"@{owner}"
         if F.width(handle) <= ux - 6 - (nx + 4):
             a.text(nx + 4, y, handle, pix.COCOA, F, f"{base}.owner", "pinned")
@@ -578,7 +669,7 @@ def activity(d: dict) -> tuple[str, list[str]]:
         f"last 12 months · {fmt(cal['totalContributions'])} contributions",
     )
 
-    ramp = ("#f1e4d8", pix.HONEY, pix.AMBER, "#c4864a", pix.COCOA, pix.INK)
+    ramp = (pix.CALENDAR_EMPTY, pix.HONEY, pix.AMBER, pix.CARAMEL, pix.COCOA, pix.INK)
 
     def level(n: int) -> str:
         for cap, c in ((0, 0), (1, 1), (3, 2), (7, 3), (14, 4)):
@@ -651,7 +742,7 @@ def activity(d: dict) -> tuple[str, list[str]]:
             name = (e.get("node") or {}).get("name") or "?"
             totals[name] = totals.get(name, 0) + (e.get("size") or 0)
     grand = sum(totals.values()) or 1
-    top = sorted(totals.items(), key=lambda kv: -kv[1])[:6]
+    top = sorted(totals.items(), key=lambda kv: -kv[1])[: CONFIG.stack_languages]
     a.text(12, bar_y - 1, "Stack", pix.INK, F, "stack.h", "activity", bold=True)
     a.text_right(
         W - 12,
@@ -686,47 +777,99 @@ def activity(d: dict) -> tuple[str, list[str]]:
 
 
 def signature(d: dict) -> tuple[str, list[str]]:
-    """Sign-off: the kaomoji as the last line of dialogue, contacts as a menu."""
+    """Sign-off: the last line of dialogue, a farewell, and contacts as a menu."""
     H = 58
     ground = 46
-    a = Art("signature.svg", W, H, f"{USER} — {SIGN_OFF}")
+    a = Art("signature.svg", W, H, f"{USER} — {CONFIG.sign_off or 'contact'}")
     a.window("sign", 0, 4, W - 1, H - 5, pad=4)
+    ground_strip(a, ground, 55, (10, 160, 292, 404), (118, 356))
 
-    # the same ground the hero stands on, closing the page where it opened
-    a.rect(2, ground, W - 5, 55 - ground, pix.CREAM)
-    a.hline(2, ground, W - 5, pix.LATTE)
-    a.flush()
-    for tx_ in (10, 160, 292, 404):
-        a.icon(tx_, ground - 2, pix.TUFT, pix.LATTE)
-    for fx in (118, 356):
-        a.sprite(fx, ground - 5, pix.FLOWER, {"#": pix.ROSE, "o": pix.HONEY, "|": pix.TAUPE})
-    a.flush()
+    both = bool(CONFIG.sign_off and CONFIG.farewell)
+    ty = 10 if both else 17
+    if CONFIG.sign_off:
+        kw = a.text(12, ty, CONFIG.sign_off, pix.INK, F, "sign_off", "sign", bold=True)
+        a.twinkle(12 + kw + 5, ty + 1, pix.SPARKLE_S, pix.HONEY, dur=2.6)
+        a.twinkle(12 + kw + 13, ty + 12, pix.SPARKLE_XS, pix.ROSE, dur=3.1, begin=1.1)
+        ty += 15
+    if CONFIG.farewell:
+        a.text(12, ty, CONFIG.farewell, pix.COCOA, F, "farewell", "sign")
 
-    kw = a.text(12, 10, SIGN_OFF, pix.INK, F, "ciallo", "sign", bold=True)
-    a.twinkle(12 + kw + 5, 11, pix.SPARKLE_S, pix.HONEY, dur=2.6)
-    a.twinkle(12 + kw + 13, 22, pix.SPARKLE_XS, pix.ROSE, dur=3.1, begin=1.1)
-    a.text(12, 25, FAREWELL, pix.COCOA, F, "farewell", "sign")
-
-    # two columns of icon + handle, right-aligned as a block
-    right = W - 12
-    col_w = [max(F.width(t) for _, t in col) + 10 for col in zip(*CONTACT)]
-    x1 = right - col_w[1]
-    x0 = x1 - 14 - col_w[0]
-    for r, row in enumerate(CONTACT):
-        y = 10 + r * 15
-        for c, (icon, label) in enumerate(row):
-            x = (x0, x1)[c]
-            a.icon(x, y + 3, icon, pix.COCOA, f"contact.{r}.{c}.icon", "sign")
-            a.text(x + 10, y, label, pix.COCOA, F, f"contact.{r}.{c}", "sign")
+    # contacts: two columns of icon + label, right-aligned as a block
+    contacts = list(CONFIG.contacts)
+    if contacts:
+        cols = [contacts[i::2] for i in range(2)] if len(contacts) > 1 else [contacts]
+        col_w = [max(F.width(c.label) for c in col) + 10 for col in cols if col]
+        xs: list[int] = []
+        x = W - 12
+        for cw in reversed(col_w):
+            x -= cw
+            xs.insert(0, x)
+            x -= 14
+        n_rows = (len(contacts) + 1) // 2
+        for r in range(n_rows):
+            y = (10 if n_rows > 1 else 17) + r * 15
+            for c, col in enumerate(cols):
+                if r >= len(col):
+                    continue
+                contact = col[r]
+                a.icon(
+                    xs[c],
+                    y + 3,
+                    ICONS[contact.icon],
+                    pix.COCOA,
+                    f"contact.{r}.{c}.icon",
+                    "sign",
+                )
+                a.text(
+                    xs[c] + 10,
+                    y,
+                    contact.label,
+                    pix.COCOA,
+                    F,
+                    f"contact.{r}.{c}",
+                    "sign",
+                )
     return a.done()
 
 
 CARDS = {
-    "hero.svg": hero,
-    "pinned.svg": pinned,
-    "activity.svg": activity,
-    "signature.svg": signature,
+    "hero": ("hero.svg", hero, f"{USER} — pixel profile"),
+    "pinned": ("pinned.svg", pinned, "Pinned projects, refreshed daily from GitHub"),
+    "activity": (
+        "activity.svg",
+        activity,
+        "Contribution calendar for the last 12 months and language mix by bytes",
+    ),
+    "signature": ("signature.svg", signature, "Sign-off and contacts"),
 }
+
+SNAKE = """<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/{u}/{u}/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/{u}/{u}/output/github-contribution-grid-snake.svg" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/{u}/{u}/output/github-contribution-grid-snake.svg" width="100%" />
+</picture>"""
+
+
+def write_readme() -> None:
+    """Rewrite README.md from README.template.md and the configured card order."""
+    if not TEMPLATE.exists():
+        return
+    blocks: list[str] = []
+    for name in CONFIG.order:
+        if name == "snake":
+            blocks.append(SNAKE.format(u=USER))
+            continue
+        filename, _fn, alt = CARDS[name]
+        img = f'<img src="./assets/{filename}" alt="{alt}" width="100%" />'
+        if name == "hero":
+            img = f'<a href="https://github.com/{USER}">\n  {img}\n</a>'
+        blocks.append(img)
+    readme = TEMPLATE.read_text(encoding="utf-8").replace(
+        "{{cards}}", "\n\n".join(blocks)
+    )
+    if not README.exists() or README.read_text(encoding="utf-8") != readme:
+        README.write_text(readme, encoding="utf-8")
+        print("  README.md        rewritten")
 
 
 def main() -> int:
@@ -742,11 +885,20 @@ def main() -> int:
 
     ASSETS.mkdir(exist_ok=True)
     problems: list[str] = []
-    for name, fn in CARDS.items():
+    for name in CONFIG.order:
+        if name == "snake":
+            continue
+        filename, fn, _alt = CARDS[name]
         svg, probs = fn(data)
         problems += probs
-        (ASSETS / name).write_text(svg, encoding="utf-8")
-        print(f"  {name:<16}{len(svg):>8} bytes")
+        (ASSETS / filename).write_text(svg, encoding="utf-8")
+        print(f"  {filename:<16}{len(svg):>8} bytes")
+    for name, (filename, _fn, _alt) in CARDS.items():
+        if name not in CONFIG.order and (ASSETS / filename).exists():
+            (ASSETS / filename).unlink()
+            print(f"  {filename:<16} removed (not in cards.order)")
+    write_readme()
+
     if problems:
         print(f"\nLAYOUT PROBLEMS ({len(problems)}):")
         for p in problems:

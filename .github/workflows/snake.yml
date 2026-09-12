@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 */12 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'profile.toml'
+      - 'scripts/snake-outputs.py'
+      - '.github/workflows/snake.yml'
 
 jobs:
   build:
@@ -11,18 +17,30 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Dots follow the activity card's ramp and the snake is the page's rose,
-      # so the animation sits in the same palette as the drawn cards. Values
-      # are URL-encoded ('#' -> %23); snk parses the query with URLSearchParams.
-      #   light: cream -> honey -> amber -> caramel -> ink
-      #   dark:  warm charcoal -> cocoa -> caramel -> amber -> honey
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Login and colours come from profile.toml; the script prints the two
+      # output lines (light and dark) with the palette URL-encoded.
+      - name: read profile.toml
+        id: cfg
+        run: |
+          set -euo pipefail
+          echo "login=$(python3 -c 'import tomllib;print(tomllib.load(open("profile.toml","rb"))["github"]["login"])')" >> "$GITHUB_OUTPUT"
+          {
+            echo 'outputs<<EOF'
+            python3 scripts/snake-outputs.py
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Generate snake animation
         uses: Platane/snk@v3
         with:
-          github_user_name: Crosery
-          outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=%23dd8f8c&color_dot_border=%234a342722&color_dots=%23f1e4d8,%23f0cf8f,%23dba85f,%23c4864a,%234a3427
-            dist/github-contribution-grid-snake-dark.svg?color_snake=%23dd8f8c&color_dot_border=%23f7e8d822&color_dots=%2323201f,%236b4a33,%23a9743f,%23dba85f,%23f0cf8f
+          github_user_name: ${{ steps.cfg.outputs.login }}
+          outputs: ${{ steps.cfg.outputs.outputs }}
 
       - name: Push snake to output branch
         uses: crazy-max/ghaction-github-pages@v4

@@ -1,0 +1,97 @@
+# Pixel profile — everything a fork changes lives in this file.
+#
+# Live numbers (repos, stars, followers, commits, the calendar, pinned
+# projects) come from the GitHub API at build time. This file holds only what
+# GitHub cannot know about you. Setup guide: SETUP.md
+#
+# Text is drawn with a 10 px pixel font covering Latin, Greek, Cyrillic, kana
+# and GB2312 Chinese. Emoji have no glyph: they are dropped from GitHub text,
+# and in your own copy below they fail the build so you notice.
+
+[github]
+# The login the cards are generated for. Both workflows read it from here.
+login = "Crosery"
+
+[hero]
+# Title on the hero card. Letters a–z are drawn from a hand-made lowercase
+# pixel logotype; a capital C is drawn tall, other capitals use the lowercase
+# shapes. A title with digits or other characters falls back to the pixel
+# font at 2x, bold with an outline. Keep it short: it shares the card with
+# the portrait.
+title = "Crosery"
+# Portrait shown as a 96 px sprite. "github" downloads your avatar at build
+# time; a path is used as-is (PNG/JPG, square, ideally 400 px or larger).
+portrait = "github"
+# Where to cut the round token out of the portrait: "auto" finds a drawn ring
+# or transparent silhouette, or give [centre_x, centre_y, radius] in source
+# pixels to place it yourself.
+portrait_crop = [229, 230, 199]
+# Extra facts under the bio, joined with " · ". An empty list hides the line.
+facts = []
+
+[dialog]
+# The character speaks these lines, typed out one glyph at a time. One to
+# three lines; each must fit the window (about 60 Latin characters or 30 CJK).
+speaker = "Crosery"
+lines = [
+  "I build AI toolchains, multi-agent systems and Rust CLIs.",
+  "ACG & Yuzu-Soft fan at Yangtze University. Blog: crosery.cn",
+]
+# Typing speed in glyphs per second, and how long the finished message holds
+# before it types again.
+speed = 26
+hold = 12.0
+
+[signature]
+# Sign-off line (bold) and a quieter second line. Either may be empty.
+sign_off = "ciallo～[∠・ω< ]⌒★"
+farewell = "Thanks for scrolling."
+
+# Contacts render as an icon menu, two per row, right-aligned; up to six.
+# Icons: home, mail, github, x, blog, rss, discord, telegram, bilibili,
+# mastodon, linkedin. Delete every entry to hide the menu.
+[[signature.contacts]]
+icon = "home"
+label = "crosery.cn"
+
+[[signature.contacts]]
+icon = "mail"
+label = "luoxi2024@foxmail.com"
+
+[[signature.contacts]]
+icon = "github"
+label = "@Crosery"
+
+[[signature.contacts]]
+icon = "x"
+label = "@crosery2022"
+
+[palette]
+# Six colours drive every card and the contribution snake. The defaults were
+# sampled from the original portrait; match them to yours. `ink` on `milk`
+# must stay readable — the build refuses a contrast ratio under 4.5:1.
+milk = "#fff7ef"      # window fill
+cream = "#f7e8d8"     # ground, light hair
+ink = "#4a3427"       # text and outlines
+cocoa = "#8a6a55"     # secondary text
+amber = "#dba85f"     # stars, calendar mid-tones
+rose = "#dd8f8c"      # flowers, the snake
+# The hero sky: any number of bands from top to bottom, dithered into each
+# other. The last band should be close to `cream` so the ground meets it.
+sky = ["#cfc8de", "#e4d0d6", "#f2bfb8", "#f6d7c3", "#f7e8d8"]
+# Optional fine-tuning. Delete these to have them derived from the six above.
+honey = "#f0cf8f"          # light amber: sparkles, calendar level 1
+latte = "#d9c2ad"          # hairlines, bar tracks
+taupe = "#b39a89"          # stems, decorative only
+caramel = "#c4864a"        # calendar level 3
+calendar_empty = "#f1e4d8" # calendar day with no contributions
+
+[cards]
+# Cards in README.md, top to bottom. Remove a name to drop that card. The
+# README is rewritten on every build from README.template.md.
+order = ["hero", "pinned", "activity", "snake", "signature"]
+# When GitHub returns no pins (installation tokens sometimes cannot see them),
+# show this many most-starred public repositories instead, labelled as such.
+pinned_fallback = 6
+# How many languages the stack bar breaks out.
+stack_languages = 6
