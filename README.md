@@ -1,51 +1,23 @@
-<!-- ─────────────────────────────────────────────────────────────── -->
-<!--  CROSERY · individual developer · AI toolchains & open source   -->
-<!--  Optimized for GitHub Dark Mode                                 -->
-<!-- ─────────────────────────────────────────────────────────────── -->
+<!--
+  Crosery · individual developer · AI toolchains & open source
+  Every card below is drawn by scripts/gen-profile.py from live GitHub data:
+  pixel type is Fusion Pixel Font (OFL 1.1), the portrait is compiled into
+  a 96 px sprite, and the whole page sits on a 2 CSS px art grid.
+  Refreshed daily 03:17 +08 via .github/workflows/refresh-cards.yml
+-->
 
 <a href="https://www.crosery.cn/">
-  <img src="./assets/banner.svg" alt="Crosery — Building AI Toolchains and Open Source" width="100%" />
+  <img src="./assets/hero.svg" alt="Crosery — individual developer building AI toolchains and open source" width="100%" />
 </a>
 
-<br/>
+<img src="./assets/pinned.svg" alt="Pinned projects, refreshed daily from GitHub" width="100%" />
 
-<img src="./assets/about.svg" alt="About — individual developer, AI toolchains & open source" width="100%" />
-
-<img src="./assets/now.svg" alt="Now — three things keeping the lights on: runai, acp-bus, ppt-anything" width="100%" />
-
-<p align="left">
-  <sub><code>ALSO ON GITHUB</code>&nbsp;&nbsp;<a href="https://github.com/Crosery/aread">aread</a>&nbsp; ·&nbsp; <a href="https://github.com/Crosery/figma-mcp-guide">figma-mcp-guide</a>&nbsp; ·&nbsp; <a href="https://github.com/Crosery/blue-archive-agent-system">blue-archive-agent-system</a>&nbsp; ·&nbsp; <a href="https://github.com/Crosery/hexo-free-ai-summary">hexo-free-ai-summary</a>&nbsp; ·&nbsp; <a href="https://github.com/Crosery/nixos-config">nixos-config</a>&nbsp; ·&nbsp; <a href="https://github.com/Crosery/Crosery-neovim-config">neovim-config</a></sub>
-</p>
-
-<p align="left">
-  <sub><code>PRINCIPLES</code>&nbsp;&nbsp;source &gt; docs&nbsp; ·&nbsp; measure, don't guess&nbsp; ·&nbsp; ship narrow, ship done&nbsp; ·&nbsp; no emoji, ever</sub>
-</p>
-
-<img src="./assets/sep.svg" alt="" width="100%" />
-
-<!-- metrics — two cards, self-hosted, regenerated daily 03:17 +08 via GitHub Actions -->
-<div align="center">
-  <img height="200" src="./assets/stats.svg" alt="stats" />
-  <img height="200" src="./assets/top-langs.svg" alt="top languages" />
-</div>
-
-<br/>
+<img src="./assets/activity.svg" alt="Contribution calendar for the last 12 months and language mix by bytes" width="100%" />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Crosery/Crosery/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Crosery/Crosery/output/github-contribution-grid-snake.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/Crosery/Crosery/output/github-contribution-grid-snake-dark.svg" width="100%" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/Crosery/Crosery/output/github-contribution-grid-snake.svg" width="100%" />
 </picture>
 
-<img src="./assets/sep.svg" alt="" width="100%" />
-
-<!-- contact -->
-
-```
-WEB      https://www.crosery.cn
-GITHUB   https://github.com/Crosery
-EMAIL    luoxi2024@foxmail.com
-X        https://twitter.com/XiLuo4125248565
-```
-
-<img src="./assets/signature.svg" alt="ciallo." width="100%" />
+<img src="./assets/signature.svg" alt="ciallo～[∠・ω< ]⌒★ — crosery.cn · luoxi2024@foxmail.com" width="100%" />

@@ -1,0 +1,4 @@
+# generator caches and byte-code
+.cache/
+__pycache__/
+*.pyc
