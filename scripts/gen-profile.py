@@ -92,7 +92,7 @@ ICON_X = (
 )
 CONTACT = (
     ((ICON_HOME, "crosery.cn"), (ICON_MAIL, "luoxi2024@foxmail.com")),
-    ((ICON_CAT, f"@{USER}"), (ICON_X, "@XiLuo4125248565")),
+    ((ICON_CAT, f"@{USER}"), (ICON_X, "@crosery2022")),
 )
 
 
