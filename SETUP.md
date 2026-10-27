@@ -60,10 +60,12 @@ portrait, so if you change `[palette]` later, run `gen-sprite.py` again.
 python3 scripts/gen-profile.py           # fetches with `gh` or GITHUB_TOKEN, writes assets/ and README.md
 ```
 
-Push, and the two workflows take over: `refresh profile cards` rebuilds the
-cards daily and on every push that touches `profile.toml` or `scripts/`;
-`generate snake` redraws the snake every 12 hours in your palette. Run
-either by hand from the Actions tab the first time.
+Push, and the two workflows take over, both once a morning (Asia/Shanghai):
+`refresh profile cards` rebuilds the cards at 07:17 and on every push that
+touches `profile.toml` or `scripts/`; `generate snake` redraws the snake in
+your palette at 07:47. Change the two `cron:` lines if that window does not
+suit you — nothing else depends on the times. Run either by hand from the
+Actions tab the first time.
 
 The default `GITHUB_TOKEN` sees public data only. To count private
 contributions, create a fine-grained personal access token with read access

@@ -2,7 +2,9 @@ name: generate snake
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    # Same morning window as refresh-cards, half an hour later so the two
+    # runs never land in GitHub's scheduling queue at once.
+    - cron: '47 23 * * *'   # 07:47 Asia/Shanghai
   workflow_dispatch:
   push:
     branches: [main]
